@@ -1,0 +1,609 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Cms1
+</name>
+</assembly>
+<members>
+<member name="T:Cms1.My.MyWebExtension">
+ <summary>
+ 用于定义 Web 项目的“My 命名空间”中可用属性的模块。
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:Cms1.My.MyWebExtension.Computer">
+ <summary>
+ 返回有关主计算机的信息。
+ </summary>
+</member>
+<member name="P:Cms1.My.MyWebExtension.User">
+ <summary>
+ 返回当前 Web 用户的信息。
+ </summary>
+</member>
+<member name="P:Cms1.My.MyWebExtension.Request">
+ <summary>
+ 返回 Request 对象。
+ </summary>
+</member>
+<member name="P:Cms1.My.MyWebExtension.Response">
+ <summary>
+ 返回 Response 对象。
+ </summary>
+</member>
+<member name="P:Cms1.My.MyWebExtension.Log">
+ <summary>
+ 返回 Asp 日志对象。
+ </summary>
+</member>
+<member name="F:Cms1.forgetpw._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.ureg._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.aboutus._lLink">
+<summary>
+lLink 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.aboutus._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.aboutus._bottombar1">
+<summary>
+bottombar1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.AddImages._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.AddImages._TxtImgName">
+<summary>
+TxtImgName 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.AddImages._File1">
+<summary>
+File1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.AddImages._Button1">
+<summary>
+Button1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Additems._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Additems._itemno">
+<summary>
+itemno 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Additems._itemname">
+<summary>
+itemname 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Additems._itemtext">
+<summary>
+itemtext 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Additems._Button1">
+<summary>
+Button1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.apicates._lLink">
+<summary>
+lLink 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.apicates._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.apicates._tadata">
+<summary>
+tadata 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.apiItems._lLink">
+<summary>
+lLink 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.apiItems._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.apiItems._tadata">
+<summary>
+tadata 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.index._PageTitle">
+<summary>
+PageTitle 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.login._PageTitle">
+<summary>
+PageTitle 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.login._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.login._Label2">
+<summary>
+Label2 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.login._Label5">
+<summary>
+Label5 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.login._lBar">
+<summary>
+lBar 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.login._Label1">
+<summary>
+Label1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.login._Label3">
+<summary>
+Label3 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.login._bottombar1">
+<summary>
+bottombar1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.ml._lLink">
+<summary>
+lLink 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.ml._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.ml._tadata">
+<summary>
+tadata 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.wpages._lLink">
+<summary>
+lLink 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.wpages._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.wpages._tadata">
+<summary>
+tadata 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.company._lLink">
+<summary>
+lLink 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.company._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.company._tadata">
+<summary>
+tadata 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Manager._lLink">
+<summary>
+lLink 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Manager._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Manager._tadata">
+<summary>
+tadata 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.menu._lLink">
+<summary>
+lLink 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.menu._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.menu._tadata">
+<summary>
+tadata 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Menuitem._lLink">
+<summary>
+lLink 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Menuitem._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.Menuitem._tadata">
+<summary>
+tadata 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.soft._lLink">
+<summary>
+lLink 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.soft._form1">
+<summary>
+form1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.soft._tadata">
+<summary>
+tadata 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.LoginApi._Label1">
+<summary>
+Label1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.pagebottom._Label1">
+<summary>
+Label1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.TableAlldata._Label1">
+<summary>
+Label1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.TableList._Label1">
+<summary>
+Label1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.TableList._Label2">
+<summary>
+Label2 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.TableList._Button1">
+<summary>
+Button1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="M:Cms1.TableList.Page_Load(System.Object,System.EventArgs)">
+ <summary>
+ 加载页面需要的基础数据
+ 搭建页面的框架
+ 实现三个功能
+ 1.数据列表
+ 2.修改一行数据
+ 3.删除一行数据
+ 4.添加一行数据
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Cms1.TableList.ShowOneForm(System.Object,System.Object,System.Object,System.Object,System.Object[],System.Object[],System.Object[],System.Object)">
+ <summary>
+ 主界面的入口函数
+ </summary>
+ <param name="Gn"></param>   '页面的功能，主要有edit ,edit
+ <param name="xID"></param>  '主数据库ID
+ pgn，pid  增加图片删除功能
+ <param name="FieldName"></param>
+ <param name="FieldType"></param>
+ <param name="FieldLen"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:Cms1.TableList.GetImage(System.Object)">
+ <summary>
+ 显示一条记录的附件图片信息
+ </summary>
+ <param name="xid"></param>
+ <returns></returns>
+</member>
+<member name="M:Cms1.TableList.DrawOnePage(System.Object[],System.Object[],System.Object[])">
+ <summary>
+  画一个单条记录数据维护表格（不包含数据）
+  把数据部门用 V1,V2...暂时占位
+  把图片部分用 ImageInfo 变量占位
+ </summary>
+ <param name="FieldName"></param>
+ <param name="FieldType"></param>
+ <param name="FieldLen"></param>
+ <returns></returns>
+</member>
+<member name="M:Cms1.TableList.ShowPage(System.Object[],System.Object,System.Object)">
+ <summary>
+ 显示数据库数据列表
+ 显示表格内容
+ </summary>
+ <param name="FieldName"></param>
+ <param name="isPic"></param>
+ <param name="lx"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:Cms1.TableList.Drawpage(System.Object[],System.Object)">
+ <summary>
+ 画一个表格
+ </summary>
+ <param name="FieldName"></param>
+ <param name="lx"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

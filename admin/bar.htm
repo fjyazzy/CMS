@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>bar</title>
+<script language="javascript">
+    var mode = 0;
+    function onOff() {
+        if (mode==1) {
+			top.document.all('main2').cols='130,12,*';
+			hide.style.visibility='hidden';
+			show.style.visibility = 'visible';
+			mode = 0;
+		}
+        else {
+			top.document.all('main2').cols='0,12,*';
+			show.style.visibility='hidden';
+			hide.style.visibility='visible';
+			mode = 1;
+		}
+	}
+</script>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"  >
+<table height="100%" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" valign="top" onclick="onOff();">
+  <tr>
+    <td align="center" valign="center">
+	<DIV id=hide style='position:absolute;width:12px; height:42px; z-index:1; left: 0px; top: 200px;'>
+	<img src="../images/home/menu_show.gif" alt="显示系统菜单">
+	</DIV>
+	<DIV id=show style='position:absolute;width:12px; height:42px; z-index:1; left: 0px; top: 200px;'>
+	<img src="../images/home/menu_hide.gif" alt="隐藏系统菜单">
+	</DIV>			
+	</td>
+  </tr>
+</table>
+</body>
+</html>
