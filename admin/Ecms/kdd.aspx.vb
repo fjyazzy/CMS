@@ -33,7 +33,7 @@
         ' 获取排版方式数据
         Dim rs As New ADODB.Recordset
         Dim sql As String
-        sql = "select  * from Baseinfo where lxbh='002' and xm='" & xid & "'"
+        sql = "select  * from webpages where lxbh='012' and xm='" & xid & "'"
         rs.Open(sql, conn, 1, 3)
         buju = rs.Fields("pb").Value
         rs.Close()
@@ -62,7 +62,7 @@
         Dim strJg As String
         Dim rs2 As New ADODB.Recordset
         strJg = ""
-        rs2.Open("SELECT  * from WebPages where mc='" & str & "'", Conn, 1, 3, 1)
+        rs2.Open("SELECT  * from WebPages where xm='" & str & "'", Conn, 1, 3, 1)
         If Not rs2.EOF Then
             strJg = rs2.Fields("nr").Value
         Else

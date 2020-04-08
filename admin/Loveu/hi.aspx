@@ -1,1 +1,0 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="hi.aspx.vb" Inherits="Cms1.hi" %>

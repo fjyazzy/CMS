@@ -31,9 +31,8 @@ Public Class CommonClass
             ConString(i) = "PROVIDER=Microsoft.Jet.OLEDB.4.0;Jet OLEDB:Database Password=05983602120;DATA Source=" & accessDb(i)
         Next
 
-        '设置电子销售网数据库
-        DBord_ecms = 6
-
+        '设置当前电子销售网数据库ID,可在程序中根据需要修改
+        DBord_ecms = System.Configuration.ConfigurationManager.AppSettings.Item("DBORD")
         '设置图片服务器和文档服务器的目录
         PicUrl = System.Configuration.ConfigurationManager.AppSettings.Item("Center_photos")
         ManualUrl = System.Configuration.ConfigurationManager.AppSettings.Item("Center_Manuals")
@@ -110,27 +109,7 @@ Public Class CommonClass
         Return ixx
     End Function
 
-    '获取和单位有关的全局信息
-    '结果: strDwmc 为全局变量
-    Sub getSysinfo(ByVal DBOrd As String)
 
-        Dim rsx As New ADODB.Recordset
-        Dim Conn As New ADODB.Connection
-        Connecttodb()
-        If Conn.State = 0 Then Conn.Open(setConstr(DBOrd))
-        rsx.Open("select  * from department", Conn, 1, 1)
-        While Not rsx.EOF
-            Select Case rsx.Fields("itemno").Value
-                Case "001"
-                    strDwmc = rsx.Fields("itemtext").Value
-                Case Else
-            End Select
-            rsx.MoveNext()
-        End While
-        rsx.Close()
-        Conn.Close()
-
-    End Sub
 
     ' 检查输入字符号串
     '
@@ -208,10 +187,11 @@ Public Class CommonClass
                 Case "011"
                     PAGENUMS = rsx.Fields("itemtext").Value
                 Case "012"
-                    strKSKS = rsx.Fields("itemtext").Value
+                    BJS = rsx.Fields("itemtext").Value
                 Case "013"
-                    strJSKS = rsx.Fields("itemtext").Value
-
+                    ANS = rsx.Fields("itemtext").Value
+                Case "021"
+                    strDwmc = rsx.Fields("itemtext").Value
                 Case Else
             End Select
             rsx.MoveNext()

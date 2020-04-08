@@ -83,12 +83,12 @@ Public Class TableListCS
         '正式显示数据
         If px = 1 Then
             sql = "select top " & PAGENUMS & " * from " & DBname & TjExpression
-            sql &= " order by id DESC"
+            sql &= " order by id "
         Else
             sql = "select top " & PAGENUMS & " * from " & DBname
             sql &= TjExpression & " AND (id NOT IN "
             sql &= " ( SELECT TOP " & PAGENUMS * (px - 1)
-            sql &= " id FROM " & DBname & TjExpression & " ORDER BY id))  order by id DESC"
+            sql &= " id FROM " & DBname & TjExpression & " ORDER BY id)) order by id"
         End If
 
         rs.Open(sql, Conn, 1, 1)

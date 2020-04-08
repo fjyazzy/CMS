@@ -5,8 +5,7 @@
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         cc.Connecttodb()
         If Conn.State = 0 Then Conn.Open(cc.setConstr(1))
-        cc.getSysinfo("1")
-        cc.getSoftinfo("1")
+        CC.getSoftinfo("1")
         PageTitle.Text = strDwmc & "-" & SOFTNAME & SOFTVERSION
         Label2.Text = SOFTNAME & SOFTVERSION
     End Sub

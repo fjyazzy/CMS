@@ -7,6 +7,8 @@ Public Class Ecms_OpenApi
     Sub ProcessRequest(ByVal context As HttpContext) Implements IHttpHandler.ProcessRequest
         Dim jg As String = ""
         Dim a As String = CC.Checkstr(context.Request("a"))
+        DBord_ecms = CC.Checkstr(context.Request("DBord"))
+
         Select Case a
             Case "GetWebContent"
                 Dim mc As String = CC.Checkstr(context.Request("mc"))

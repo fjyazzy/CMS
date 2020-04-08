@@ -1341,87 +1341,6 @@ Button3 控件。
 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
 </remarks>
 </member>
-<member name="F:Cms1.Baseinfo._lLink">
-<summary>
-lLink 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.Baseinfo._form1">
-<summary>
-form1 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.Baseinfo._tadata">
-<summary>
-tadata 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.company2._lLink">
-<summary>
-lLink 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.company2._form1">
-<summary>
-form1 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.company2._tadata">
-<summary>
-tadata 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.c_baseinfo._lLink">
-<summary>
-lLink 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.c_baseinfo._form1">
-<summary>
-form1 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.c_baseinfo._tadata">
-<summary>
-tadata 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
 <member name="F:Cms1.C_manual._lLink">
 <summary>
 lLink 控件。
@@ -2332,33 +2251,6 @@ tadata 控件。
 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
 </remarks>
 </member>
-<member name="F:Cms1.company1._lLink">
-<summary>
-lLink 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.company1._form1">
-<summary>
-form1 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.company1._tadata">
-<summary>
-tadata 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
 <member name="F:Cms1.csbjb._lLink">
 <summary>
 lLink 控件。
@@ -3063,33 +2955,6 @@ form1 控件。
 </remarks>
 </member>
 <member name="F:Cms1.wpages._tadata">
-<summary>
-tadata 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.company._lLink">
-<summary>
-lLink 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.company._form1">
-<summary>
-form1 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.company._tadata">
 <summary>
 tadata 控件。
 </summary>

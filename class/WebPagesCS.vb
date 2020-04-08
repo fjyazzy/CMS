@@ -6,7 +6,7 @@ Public Class WebPagesCS
         Dim jg As String = ""
         CC.Connecttodb()
         If Conn.State = 0 Then Conn.Open(CC.setConstr(DBord_ecms))
-        rs.Open("SELECT  * from webpages where mc='" & mc & "'", Conn, 1, 3, 1)
+        rs.Open("SELECT  * from webpages where xm='" & mc & "'", Conn, 1, 3, 1)
         If Not rs.EOF Then
             jg = Replace(rs.Fields("nr").Value, vbCrLf, " ")
         End If
@@ -25,7 +25,7 @@ Public Class WebPagesCS
         CC.Connecttodb()
         If Conn.State = 0 Then Conn.Open(CC.setConstr(DBord_ecms))
         Try
-            rsx.Open("select  * from webpages where mc='" & str1 & "_" & str2 & "'", Conn, 1, 1)
+            rsx.Open("select  * from webpages where xm='" & str1 & "_" & str2 & "'", Conn, 1, 1)
             jg = rsx.Fields("nr").Value
             rsx.Close()
         Catch ex As Exception
@@ -431,7 +431,7 @@ Public Class WebPagesCS
         CC.Connecttodb()
         If Conny.State = 0 Then Conny.Open(CC.setConstr(DBord_ecms))
 
-        rsy.Open("select xm,nr from baseinfo where lxbh='005' order by id", Conny, 1, 1)
+        rsy.Open("select xm,nr from webpages where lxbh='015' order by id", Conny, 1, 1)
         While Not rsy.EOF
             Select Case Trim(rsy.Fields("xm").Value)
                 Case "电话"

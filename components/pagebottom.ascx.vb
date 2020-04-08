@@ -18,10 +18,10 @@
         Dim i As Integer
         i = 1
         jg = "<div class=""footer""><br/>"
-        rs.Open("select * from department order by id", Conn, 1, 1)
+        rs.Open("select * from Systeminfo order by id", Conn, 1, 1)
         While Not rs.EOF
             Select Case rs.Fields("itemno").Value
-                Case "001", "002", "003", "004"
+                Case "021", "022", "023", "024"
                     jg &= rs.Fields("itemname").Value & ":" & rs.Fields("itemtext").Value & "&nbsp;&nbsp;"
                     If i = 2 Then
                         i = 1

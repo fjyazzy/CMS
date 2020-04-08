@@ -175,7 +175,7 @@
     End Sub
     Sub YHZHlist()
         Dim rs As New ADODB.Recordset
-        rs = Conn.Execute("select * from Baseinfo where lxbh='004' order by id desc")
+        rs = Conn.Execute("select * from webpages where lxbh='014' order by id desc")
         While Not rs.EOF
             hklx.Items.Add(New ListItem(rs.Fields("xm").Value, rs.Fields("xm").Value))
             rs.MoveNext()
@@ -184,7 +184,7 @@
     End Sub
     Sub FHFSlist()
         Dim rs As New ADODB.Recordset
-        rs = Conn.Execute("select * from Baseinfo where lxbh='002' order by id desc")
+        rs = Conn.Execute("select * from webpages where lxbh='012' order by id desc")
         While Not rs.EOF
             fhfs.Items.Add(New ListItem(rs.Fields("xm").Value, rs.Fields("xm").Value))
             rs.MoveNext()

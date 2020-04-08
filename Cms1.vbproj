@@ -92,9 +92,6 @@
     <Content Include="admin\Ecms\Add_inquirys.aspx" />
     <Content Include="admin\Ecms\Add_manual.aspx" />
     <Content Include="admin\Ecms\Add_Orders.aspx" />
-    <Content Include="admin\Ecms\Baseinfo.aspx" />
-    <Content Include="admin\Ecms\Company.aspx" />
-    <Content Include="admin\Ecms\C_baseinfo.aspx" />
     <Content Include="admin\Ecms\C_manual.aspx" />
     <Content Include="admin\Ecms\C_Products.aspx" />
     <Content Include="admin\Ecms\C_webpages.aspx" />
@@ -123,7 +120,6 @@
     <Content Include="admin\pages\wpages.aspx" />
     <Content Include="admin\Exam\sumzf.aspx" />
     <Content Include="admin\SearchResult.aspx" />
-    <Content Include="admin\Sys\company.aspx" />
     <Content Include="admin\Sys\Manager.aspx" />
     <Content Include="admin\Sys\menu.aspx" />
     <Content Include="admin\Sys\Menuitem.aspx" />
@@ -131,8 +127,6 @@
     <Content Include="admin\Sys\soft.aspx" />
     <Content Include="admin\Sys\tbdict.aspx" />
     <Content Include="admin\Xfdq\Csbitem.aspx" />
-    <Content Include="admin\Xfdq\CustomerService.aspx" />
-    <Content Include="admin\Xfdq\company.aspx" />
     <Content Include="admin\Xfdq\csbjb.aspx" />
     <Content Include="admin\Xfdq\csbjb2.aspx" />
     <Content Include="admin\Xfdq\csbjbbd.aspx" />
@@ -144,7 +138,6 @@
     <Content Include="admin\Sys\DBSql.aspx" />
     <Content Include="admin\Xfdq\Product.aspx" />
     <Content Include="admin\Xfdq\soft.aspx" />
-    <Content Include="admin\Xfdq\wPages.aspx" />
     <Content Include="cmscss\home\style1.css" />
     <Content Include="cmscss\home\style2.css" />
     <Content Include="cmscss\Sdialog.css" />
@@ -163,12 +156,13 @@
     <Content Include="images\home\inlogo.gif" />
     <Content Include="images\home\l.gif" />
     <Content Include="images\home\r.gif" />
-    <Content Include="admin\Loveu\cu.aspx" />
-    <Content Include="admin\Loveu\hi.aspx" />
-    <Content Include="admin\Loveu\Pt.aspx" />
+    <Content Include="apis\Loveu\cu.aspx" />
+    <Content Include="apis\Loveu\hi.aspx" />
+    <Content Include="apis\Loveu\Pt.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="apis\wxcms\公众号获取AccessToken.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="accounts\chgpw.aspx.designer.vb">
@@ -274,27 +268,6 @@
     </Compile>
     <Compile Include="admin\Ecms\Add_Orders.aspx.vb">
       <DependentUpon>Add_Orders.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="admin\Ecms\Baseinfo.aspx.designer.vb">
-      <DependentUpon>Baseinfo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Ecms\Baseinfo.aspx.vb">
-      <DependentUpon>Baseinfo.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="admin\Ecms\Company.aspx.designer.vb">
-      <DependentUpon>Company.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Ecms\Company.aspx.vb">
-      <DependentUpon>Company.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="admin\Ecms\C_baseinfo.aspx.designer.vb">
-      <DependentUpon>C_baseinfo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Ecms\C_baseinfo.aspx.vb">
-      <DependentUpon>C_baseinfo.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="admin\Ecms\C_manual.aspx.designer.vb">
@@ -479,20 +452,6 @@
       <DependentUpon>Csbitem.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="admin\Xfdq\CustomerService.aspx.designer.vb">
-      <DependentUpon>CustomerService.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Xfdq\CustomerService.aspx.vb">
-      <DependentUpon>CustomerService.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="admin\Xfdq\company.aspx.designer.vb">
-      <DependentUpon>company.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Xfdq\company.aspx.vb">
-      <DependentUpon>company.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="admin\Xfdq\csbjb.aspx.designer.vb">
       <DependentUpon>csbjb.aspx</DependentUpon>
     </Compile>
@@ -570,13 +529,6 @@
       <DependentUpon>soft.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="admin\Xfdq\wPages.aspx.designer.vb">
-      <DependentUpon>wPages.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Xfdq\wPages.aspx.vb">
-      <DependentUpon>wPages.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="apis\Ecms\Ecms_OpenApi.ashx.vb">
       <DependentUpon>Ecms_OpenApi.ashx</DependentUpon>
     </Compile>
@@ -638,13 +590,6 @@
     </Compile>
     <Compile Include="admin\pages\wpages.aspx.vb">
       <DependentUpon>wpages.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="admin\Sys\company.aspx.designer.vb">
-      <DependentUpon>company.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Sys\company.aspx.vb">
-      <DependentUpon>company.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="admin\Sys\Manager.aspx.designer.vb">
@@ -723,24 +668,24 @@
       <DependentUpon>Table_MX.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\Loveu\cu.aspx.designer.vb">
+    <Compile Include="apis\Loveu\cu.aspx.designer.vb">
       <DependentUpon>cu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\Loveu\cu.aspx.vb">
+    <Compile Include="apis\Loveu\cu.aspx.vb">
       <DependentUpon>cu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\Loveu\hi.aspx.designer.vb">
+    <Compile Include="apis\Loveu\hi.aspx.designer.vb">
       <DependentUpon>hi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\Loveu\hi.aspx.vb">
+    <Compile Include="apis\Loveu\hi.aspx.vb">
       <DependentUpon>hi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\Loveu\Pt.aspx.designer.vb">
+    <Compile Include="apis\Loveu\Pt.aspx.designer.vb">
       <DependentUpon>Pt.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\Loveu\Pt.aspx.vb">
+    <Compile Include="apis\Loveu\Pt.aspx.vb">
       <DependentUpon>Pt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -764,6 +709,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="class\WXVClass.vb" />
+    <Compile Include="apis\wxcms\Lyb.ashx.vb">
+      <DependentUpon>Lyb.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="apis\wxcms\Wxv.ashx.vb">
+      <DependentUpon>Wxv.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="admin\BMenu.aspx.resx">
@@ -812,6 +763,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="apis\wxcms\Lyb.ashx" />
+    <Content Include="apis\wxcms\wxmenu.json" />
+    <Content Include="apis\wxcms\Wxv.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
