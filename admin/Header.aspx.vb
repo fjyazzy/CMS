@@ -34,11 +34,10 @@ Public Class Header
         cc.getSoftinfo("1")
         llink.Attributes.Add("href", "../cmscss/home/style" & SYSTEMSTYLE & ".css")
 
-        Label1.Text = "<img valign=bottom src=../images/home/inlogo.gif>" & strDwmc & "-"
-        Label1.Text &= SOFTNAME & SOFTVERSION & "<img src=../images/home/r.gif>"
+        Label1.Text = strDwmc & "-"
+        Label1.Text &= SOFTNAME & SOFTVERSION & "-"
         Label1.Text &= Server.UrlDecode(Request.Cookies("name").Value) & " <img src=../images/home/address.gif> "
 
-        Label1.Text &= "<img src=../images/home/l.gif> "
         Label1.Text &= "<a target=bmenu href=bmenu.aspx>系统功能</a> | "
         Label1.Text &= "<a target=bmenu href=search.aspx>全局搜索</a> | "
         Label1.Text &= "<a target=mainx href=../accounts/help.aspx>帮助</a> | "

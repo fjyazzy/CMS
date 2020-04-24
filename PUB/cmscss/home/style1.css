@@ -1,0 +1,82 @@
+body {
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:10pt;
+	background-color:#deefff;
+}
+table{
+    	font-size:10pt;
+}
+.myMenu
+{
+	BORDER-RIGHT: #002200 1px solid; 
+	BORDER-TOP: #a6c1df 1px solid; 
+	BORDER-LEFT: #a6c1df 1px solid; 
+	COLOR: #ffffff; 
+	BORDER-BOTTOM: #002200 1px solid; 
+	BACKGROUND-COLOR: #61A1B6;
+    font-size:9px;
+    background-image:url(../../images/home/tbar1.gif)
+
+}
+.myMenu a
+{
+		COLOR: #ffffff; 
+}
+ul{	 
+    margin:5px; 
+    padding:5px;
+    list-style-position: inside;
+    list-style-image:url(../../images/home/c1.png);
+    Line-height:18px;
+} 
+a{
+    margin:1px; 
+    padding:1px;
+    text-decoration:None;
+    color:#61A1B6;
+}
+.btnlogin{
+    width:100px;
+    color:#333;
+    background-color:#eee;
+    border: 1px solid #61A1B6;
+    cursor:pointer;
+}
+.tdcontent {
+    width:600px;
+    font-size:small;
+    color:#333;
+    background-color:#eee;
+    text-align:center;
+}
+.thcontent {
+    width:600px;
+    font-size:small;
+    color:#fff;
+    background-color:#61A1B6;
+    text-align:center;
+}
+.gndh{	 
+    background-image:url('../../images/home/gndh1.gif');
+    height:36px;
+}
+.menu{	 
+    background-image:url('../../images/home/menu1.gif');
+    height:36px;
+}
+
+/* Ò³Ãæ×îµ×¶Ë */
+ .footer{
+ position:absolute;
+ left:0;
+ bottom:0;
+ width:100%;
+ height:60px;
+ font-size:x-small;
+ color:#333;
+ background-color:#eee;
+ text-align:center;
+ }

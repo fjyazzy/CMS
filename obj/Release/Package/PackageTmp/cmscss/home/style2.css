@@ -1,0 +1,80 @@
+body {
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:10pt;
+	background-color:#eeeeee;
+}
+table{
+    	font-size:10pt;
+}
+.myMenu
+{
+	BORDER-RIGHT: #002200 1px solid; 
+	BORDER-TOP:chocolate 1px solid; 
+	BORDER-LEFT: chocolate 1px solid; 
+	COLOR: #ffffff; 
+	BORDER-BOTTOM: #ccc 1px solid; 
+	BACKGROUND-COLOR: chocolate;
+    background-image:url(../../images/home/tbar2.gif)
+}
+.myMenu a
+{
+		COLOR: #ffffff; 
+}
+ul{	 
+  margin:5px; 
+  padding:5px;
+  list-style-position: inside;
+  list-style-image:url(../../images/home/c2.png);
+  Line-height:18px;
+} 
+a{
+    margin:1px; 
+    padding:1px;
+    text-decoration:None;
+    color:chocolate;
+}
+.btnlogin{
+    width:100px;
+    color:#333;
+    background-color:#eee;
+    border: 1px solid chocolate;
+    cursor:pointer;
+}
+.tdcontent {
+    width:600px;
+    font-size:small;
+    color:#ff6a00;
+    background-color:#eee;
+    text-align:center;
+}
+.thcontent {
+    width:600px;
+    font-size:small;
+    color:#fff;
+    background-color:chocolate;
+    text-align:center;
+}
+.gndh{	 
+    background-image:url('../../images/home/gndh2.gif');
+    height:36px;
+}
+.menu{	 
+    background-image:url('../../images/home/menu2.gif');
+    height:36px;
+}
+
+/* Ò³Ãæ×îµ×¶Ë */
+ .footer{
+ position:absolute;
+ left:0;
+ bottom:0;
+ width:100%;
+ height:60px;
+ font-size:x-small;
+ color:#333;
+ background-color:#eee;
+ text-align:center;
+ }

@@ -149,13 +149,11 @@
     <Content Include="components\pagebottom.ascx" />
     <Content Include="components\TableAlldata.ascx" />
     <Content Include="components\Table_MX.ascx" />
+    <Content Include="images\fun\del.png" />
     <Content Include="images\home\address.gif" />
     <Content Include="images\home\menu_hide.gif" />
     <Content Include="images\home\menu_show.gif" />
     <Content Include="images\home\plus.gif" />
-    <Content Include="images\home\inlogo.gif" />
-    <Content Include="images\home\l.gif" />
-    <Content Include="images\home\r.gif" />
     <Content Include="apis\Loveu\cu.aspx" />
     <Content Include="apis\Loveu\hi.aspx" />
     <Content Include="apis\Loveu\Pt.aspx" />
@@ -752,6 +750,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\CMS1.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

@@ -4,16 +4,17 @@ Imports System.Drawing.Imaging
 Public Class AddImages
     Inherits System.Web.UI.Page
     Public Conn As New ADODB.Connection
+    Public Dbord, DBname, lx, SaveLocation As String
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        cc.Connecttodb()
-        Conn.Open(cc.setConstr(1))
+        CC.Connecttodb()
+        Dbord = Request("DBord")
+        DBname = Request("DBname")
+        lx = Request("lx")
+        Conn.Open(CC.setConstr(Dbord))
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim DBord, DBname, lx, jg As String
-        DBord = Request("DBord")
-        DBname = Request("DBname")
-        lx = Request("lx")
 
         Dim rs As New ADODB.Recordset
         rs.Open("select * from " & DBname & "_images where id=" & lx, Conn, 1, 3)
@@ -23,20 +24,19 @@ Public Class AddImages
         rs.Fields("Pid").Value = lx
         rs.Update()
         rs.Close()
-
         Conn.Close()
 
+        Dim jg As String
         jg = "<script language = ""javascript"" >"
         jg &= "window.close();"
         jg &= "</script>"
         Response.Write(jg)
 
-
     End Sub
     Private Function SaveImage(ByVal DBord As String) As String
         Dim ImagePath, nf As String
         Dim jiok As Integer = 0
-        ImagePath = PicUrl & "\" & CC.DBord2path(DBord)
+        ImagePath = Center_PicUrl & "\" & CC.DBord2path(DBord)
         nf = ""
         ' 保存原图图片，生成缩略图，制作水印，水印缩略图
         If Not File1.PostedFile Is Nothing And File1.PostedFile.ContentLength > 0 Then
@@ -48,21 +48,11 @@ Public Class AddImages
                 SaveLocation = ImagePath & "\" & nf
                 Try
                     File1.PostedFile.SaveAs(SaveLocation)
+                    'Response.Write(CC.Alert(SaveLocation))
                     Dim image As System.Drawing.Image = Image.FromFile(SaveLocation)
                     '加水印
                     Try
                         Dim g As Graphics = Graphics.FromImage(image)
-                        '加文字水印，注意，这里的代码和以下加图片水印的代码不能共存
-                        'g.DrawImage(image, 0, 0, image.Width, image.Height)
-                        'Dim f As Font = New Font("黑体", 32)
-                        '不透明
-                        'Dim b As Brush = New SolidBrush(Color.White)
-                        '半透明
-                        'Dim b As Brush = New SolidBrush(Color.FromArgb(64, 255, 255, 255))
-                        'g.DrawString("郑志勇 Zhengzhiyong 。inc", f, b, 30, 50)
-                        'g.DrawString("www.chinaeds.com", f, b, 30, 90)
-                        'g.Dispose()
-
                         '//加图片水印
                         Dim copyImage As System.Drawing.Image = Image.FromFile(ImagePath & "\sy2.gif")
                         Dim h As Single
@@ -103,7 +93,8 @@ Public Class AddImages
                 Catch Exc As Exception
                     Response.Write(CC.Alert("Error:这种图片保存错误! " & SaveLocation & Exc.Message.ToString))
                 End Try
-
+            Else
+                Response.Write(CC.Alert("Error:图片文件扩展名不匹配! "))
             End If
 
         End If

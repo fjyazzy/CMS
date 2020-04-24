@@ -32,13 +32,13 @@ Partial Public Class CSVImport
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''FileUpload1 控件。
+    '''File1 控件。
     '''</summary>
     '''<remarks>
     '''自动生成的字段。
     '''若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
     '''</remarks>
-    Protected WithEvents FileUpload1 As Global.System.Web.UI.WebControls.FileUpload
+    Protected WithEvents File1 As Global.System.Web.UI.WebControls.FileUpload
     
     '''<summary>
     '''Button1 控件。

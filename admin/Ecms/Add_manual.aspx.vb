@@ -136,7 +136,7 @@ Public Class Add_manual
         If Not File1.PostedFile Is Nothing And File1.PostedFile.ContentLength > 0 Then
             Dim filename, fsize, jg As String
             Dim mPath As String = ""
-            mPath = ManualUrl & "\" & CC.DBord2path(DBord_ecms)
+            mPath = Center_ManualUrl & "\" & CC.DBord2path(DBord_ecms)
 
             filename = CC.CheckFileName(System.IO.Path.GetFileName(File1.PostedFile.FileName))
             fsize = FormatNumber(File1.PostedFile.ContentLength / 1024, 1) & "k"
@@ -205,16 +205,16 @@ Public Class Add_manual
         Dim mPath As String = ""
         Dim murl As String = ""
 
-        mPath = ManualUrl & "\" & CC.DBord2path(DBord_ecms)
-        murl = "..\Center_manuals\" & CC.DBord2path(DBord_ecms)
+        mPath = Center_ManualUrl & "\" & CC.DBord2path(DBord_ecms)
+        murl = "..\..\Center_manuals\" & CC.DBord2path(DBord_ecms)
 
         f = Split(s, "|")
         jg = "<ul>"
         For i = 0 To UBound(f) - 1 Step 2
             If File.Exists(mPath & "/" & f(i)) Then
-                jg &= "<li><a target=_blank href=../../ecms/viewManual.aspx?p=" & Server.UrlEncode(murl & "\" & f(i)) & ">" & f(i) & "(" & f(i + 1) & ")</a>"
+                jg &= "<li><a target=_blank href=" & murl & "\" & f(i) & ">" & f(i) & "(" & f(i + 1) & ")</a>"
             Else
-                jg &= "<li><a target=_blank href=../../ecms/viewManual.aspx?p=" & Server.UrlEncode(murl & "\icdemi.pdf") & ">" & f(i) & "(" & f(i + 1) & ")</a>"
+                jg &= "<li>服务器上资料文件不存在，请重新上传！"
             End If
         Next
         jg &= "<ul>"

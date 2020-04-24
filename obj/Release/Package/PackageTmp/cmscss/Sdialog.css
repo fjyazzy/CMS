@@ -1,0 +1,31 @@
+﻿/* 弹出窗口样式  */
+#msgDiv {
+    z-index:10001;
+    background:white;
+    border:#336699 1px solid;
+    position:absolute;
+    top:180px;
+    font-size:12px;
+    display: none;
+}
+#msgShut{
+    color:#ccc;
+    margin-right:1px;
+    background-color: #333;
+    text-align:right;
+}
+#msgTitle {
+    background-color: #ccc;
+    color:#333;
+}
+#bgDiv {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right:0px;
+    background-color: #777;
+    filter:progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=75);
+    opacity: 0.6;
+}
+/* 弹出窗口样式结束  */

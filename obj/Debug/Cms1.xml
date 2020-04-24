@@ -468,9 +468,9 @@ form1 控件。
 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
 </remarks>
 </member>
-<member name="F:Cms1.CSVImport._FileUpload1">
+<member name="F:Cms1.CSVImport._File1">
 <summary>
-FileUpload1 控件。
+File1 控件。
 </summary>
 <remarks>
 自动生成的字段。
@@ -2224,33 +2224,6 @@ LBcc 控件。
  </summary>
  <param name="lxbh"></param>
 </member>
-<member name="F:Cms1.CustomerService._lLink">
-<summary>
-lLink 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.CustomerService._form1">
-<summary>
-form1 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.CustomerService._tadata">
-<summary>
-tadata 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
 <member name="F:Cms1.csbjb._lLink">
 <summary>
 lLink 控件。
@@ -2828,33 +2801,6 @@ tadata 控件。
 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
 </remarks>
 </member>
-<member name="F:Cms1.wPages1._lLink">
-<summary>
-lLink 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.wPages1._form1">
-<summary>
-form1 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
-<member name="F:Cms1.wPages1._tadata">
-<summary>
-tadata 控件。
-</summary>
-<remarks>
-自动生成的字段。
-若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-</remarks>
-</member>
 <member name="F:Cms1.index._PageTitle">
 <summary>
 PageTitle 控件。
@@ -3080,13 +3026,6 @@ tadata 控件。
  <param name="strTitle"></param>
  <param name="w"></param>
  <param name="h"></param>
- <returns></returns>
-</member>
-<member name="M:Cms1.CommonClass.webDHL(System.String)">
- <summary>
- 设置外网导航栏
- </summary>
- <param name="DBOrd"></param>
  <returns></returns>
 </member>
 <member name="M:Cms1.TableListCS.ShowPage(ADODB.Connection,System.String,System.String,System.String,System.Int32,System.String[],System.String,System.String,System.String,System.Int32,System.String,System.String,System.Int32,System.Int32,System.String,System.String)">

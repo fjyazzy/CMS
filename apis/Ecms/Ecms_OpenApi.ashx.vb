@@ -8,8 +8,10 @@ Public Class Ecms_OpenApi
         Dim jg As String = ""
         Dim a As String = CC.Checkstr(context.Request("a"))
         DBord_ecms = CC.Checkstr(context.Request("DBord"))
-
         Select Case a
+            Case "GetSystemInfo"
+                Dim itemno As String = CC.Checkstr(context.Request("itemno"))
+                jg = WCS.GetSystemInfo(itemno)
             Case "GetWebContent"
                 Dim mc As String = CC.Checkstr(context.Request("mc"))
                 jg = WCS.GetWebContent(mc)

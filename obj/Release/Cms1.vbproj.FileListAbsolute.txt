@@ -1,0 +1,15 @@
+D:\Upload\CMSv1\bin\Cms1.dll.config
+D:\Upload\CMSv1\bin\Cms1.dll
+D:\Upload\CMSv1\bin\Cms1.pdb
+D:\Upload\CMSv1\bin\Cms1.xml
+D:\Upload\CMSv1\bin\Interop.ADODB.dll
+D:\Upload\CMSv1\obj\Release\Interop.ADODB.dll
+D:\Upload\CMSv1\obj\Release\Cms1.vbproj.ResolveComReference.cache
+D:\Upload\CMSv1\obj\Release\Cms1.BMenu.resources
+D:\Upload\CMSv1\obj\Release\Cms1.Header.resources
+D:\Upload\CMSv1\obj\Release\Cms1.LoginApi.resources
+D:\Upload\CMSv1\obj\Release\Cms1.Resources.resources
+D:\Upload\CMSv1\obj\Release\Cms1.vbproj.GenerateResource.Cache
+D:\Upload\CMSv1\obj\Release\Cms1.dll
+D:\Upload\CMSv1\obj\Release\Cms1.xml
+D:\Upload\CMSv1\obj\Release\Cms1.pdb

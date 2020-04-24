@@ -1,5 +1,21 @@
 ﻿Imports System.IO
 Public Class WebPagesCS
+    ' 从systeminfo表中取nr数据
+    Public Function GetSystemInfo(ByVal itemno As String) As String
+        Dim Conn As New ADODB.Connection
+        Dim rs As New ADODB.Recordset
+        Dim jg As String = ""
+        CC.Connecttodb()
+        If Conn.State = 0 Then Conn.Open(CC.setConstr(DBord_ecms))
+        rs.Open("SELECT  * from systeminfo where itemno='" & itemno & "'", Conn, 1, 3, 1)
+        If Not rs.EOF Then
+            jg = Replace(rs.Fields("itemtext").Value, vbCrLf, " ")
+        End If
+        rs.Close()
+        Conn.Close()
+        Return jg
+    End Function
+    ' 从Webpages表中取nr数据
     Public Function GetWebContent(ByVal mc As String) As String
         Dim Conn As New ADODB.Connection
         Dim rs As New ADODB.Recordset
@@ -12,10 +28,9 @@ Public Class WebPagesCS
         End If
         rs.Close()
         Conn.Close()
-
         Return jg
     End Function
-
+    ' 从Webpages表中按TITLE格式取nr数据
     Public Function GetTitle(ByVal str1 As String, ByVal str2 As String) As String
         'str1="Title | MetaContent | MetaKeywords"
         'str2 ="页面名称"
@@ -34,7 +49,7 @@ Public Class WebPagesCS
         Return jg
 
     End Function
-
+    ' 从Category_product表中取分类列表
     Public Function GetCategoryList() As String
         Dim rs As New ADODB.Recordset
         Dim sql, jg As String
@@ -42,10 +57,11 @@ Public Class WebPagesCS
         Dim lixa As Integer
         CC.Connecttodb()
         If conn.State = 0 Then conn.Open(CC.setConstr(DBord_ecms))
-        jg = "<h3 onclick=""ShowHideDiv('clist')"">产品分类 + </h3>"
+        BJS = GetSystemInfo("013")
+        jg = "<div style=""cursor:hand;background-color:" & BJS & ";"" onmouseover=""ShowDiv('clist')"" onmouseout=""HideDiv('clist')"">产品分类</div>"
         sql = "SELECT  * from category_products"
         rs.Open(sql, conn, 0, 1, 1)
-        jg &= "<div id=""clist"" style=""POSITION: absolute; DISPLAY: none;background-color:#abcdef;""><table border=0 width=100% >"
+        jg &= "<div id=""clist"" style=""POSITION: absolute; DISPLAY: none;background-color:" & BJS & ";""  onmouseover=""ShowDiv('clist')""  onmouseout=""HideDiv('clist')""><table border=0 width=100% >"
         While Not rs.EOF
             If lixa = 0 Then
                 jg &= "<tr>"
@@ -71,7 +87,7 @@ Public Class WebPagesCS
         Return jg
 
     End Function
-
+    ' 制作搜索框
     Public Function GetSearchBox()
         Dim jg As String
         jg = "<form action=catalogs.aspx>"
@@ -99,6 +115,8 @@ Public Class WebPagesCS
 
         CC.Connecttodb()
         If conn.State = 0 Then conn.Open(CC.setConstr(DBord_ecms))
+        BJS = GetSystemInfo("013")
+        ANS = GetSystemInfo("012")
 
         Select Case mode
             Case 1
@@ -130,7 +148,6 @@ Public Class WebPagesCS
             jg = "<table border=0 widht=998><tr><td>您要的型号我们正在更新中..<a target=_blank href=Buy.aspx?p=" & Skey & ">&nbsp&nbsp购买 请输入您要找的型号:" & Skey & " &nbsp;&nbsp;</a></td></tr></table>"
             Return jg
         End If
-
 
         jg &= ("<table border=0 width=100% cellpadding=0 callspacing=0 bgcolor=" & BJS & ">")
         Select Case mode
@@ -164,13 +181,22 @@ Public Class WebPagesCS
         End Select
         rs.AbsolutePage = page
 
+        '设置模式 1：原文  2：html
+        Dim imode As Integer = 2
 
         Select Case mode
             Case 8
                 For i = 1 To rs.PageSize
-                    If j = 0 Then jg &= ("<tr>")
-                    jg &= ("<td><a target=" & rs.Fields("type").Value & " href=""" & Checkstr(rs.Fields("type").Value) & "_" & rs.Fields("id").Value & ".html"" target=blank><img src=photos/t_" & rs.Fields("productimg").Value & " width=100 height=100 border=0></a></td>")
-                    ' jg &= ("<td><a target=" & rs.Fields("type").Value & " href=Product.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value & " target=blank><img src=photos/t_" & rs.Fields("productimg").Value & " width=100 height=100 border=0></a></td>")
+                    If j = 0 Then
+                        jg &= ("<tr>")
+                    End If
+                    Dim ll As String
+                    If imode = 1 Then
+                        ll = "Product.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value
+                    Else
+                        ll = Checkstr(rs.Fields("type").Value) & "_" & rs.Fields("id").Value & ".html"
+                    End If
+                    jg &= ("<td><a target=" & rs.Fields("type").Value & " href=""" & ll & """ target=blank><img src=photos/t_" & rs.Fields("productimg").Value & " width=100 height=100 border=0></a></td>")
                     If j = 7 Then
                         jg &= ("</tr>")
                         j = 0
@@ -191,8 +217,14 @@ Public Class WebPagesCS
             Case 6
                 jg &= ("<tr><td>")
                 For i = 1 To rs.PageSize
-                    'jg &= ("<a href=Product.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value & " target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a> | ")
-                    jg &= ("<a href=""" & Checkstr(rs.Fields("type").Value) & "_" & rs.Fields("id").Value & ".html"" target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a> | ")
+                    Dim ll As String
+                    If imode = 1 Then
+                        ll = "Product.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value
+                    Else
+                        ll = Checkstr(rs.Fields("type").Value) & "_" & rs.Fields("id").Value & ".html"
+                    End If
+
+                    jg &= ("<a href=""" & ll & """ target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a> | ")
                     rs.MoveNext()
                     If rs.EOF Then Exit For
                 Next
@@ -201,8 +233,13 @@ Public Class WebPagesCS
             Case 9
                 For i = 1 To rs.PageSize
                     jg &= ("<tr>")
-                    'jg &= ("<td><a href=Product.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value & " target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a></td>")
-                    jg &= ("<td><a href=""" & Checkstr(rs.Fields("type").Value) & "_" & rs.Fields("id").Value & ".html"" target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a></td>")
+                    Dim ll As String
+                    If imode = 1 Then
+                        ll = "Product.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value
+                    Else
+                        ll = Checkstr(rs.Fields("type").Value) & "_" & rs.Fields("id").Value & ".html"
+                    End If
+                    jg &= ("<td><a href=""" & ll & """ target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a></td>")
                     jg &= ("</tr>")
                     rs.MoveNext()
                     If rs.EOF Then Exit For
@@ -212,8 +249,14 @@ Public Class WebPagesCS
                 For i = 1 To rs.PageSize
                     jg &= ("<tr bgcolor=" & BJS & " onmouseout='this.bgColor=""" & BJS & """' onmouseover='this.bgColor=""" & ANS & """'>")
 
-                    jg &= ("<td><a href=""" & Checkstr(rs.Fields("type").Value) & "_" & rs.Fields("id").Value & ".html"" target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a></td>")
-                    'jg &= ("<td><a href=Product.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value & " target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a></td>")
+                    Dim ll As String
+                    If imode = 1 Then
+                        ll = "Product.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value
+                    Else
+                        ll = Checkstr(rs.Fields("type").Value) & "_" & rs.Fields("id").Value & ".html"
+                    End If
+                    jg &= ("<td><a href=""" & ll & """ target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a></td>")
+
                     jg &= ("<td>" & rs.Fields("manufactory").Value & "</td>")
                     If Len(Trim(rs.Fields("fz").Value)) > 0 Then
                         jg &= ("<td>" & Left(Trim(rs.Fields("fz").Value), 10) & "...</td>")
@@ -227,7 +270,7 @@ Public Class WebPagesCS
                     End If
 
                     If rs.Fields("productimg").Value <> "" Then
-                        jg &= ("<td><a href='photos/" & rs.Fields("productimg").Value & "' target=" & rs.Fields("type").Value & "><img src=images/pic.gif border=0></td>")
+                        jg &= ("<td><a href='<<Remote_Center_Photos>>/" & rs.Fields("productimg").Value & "' target=" & rs.Fields("type").Value & "><img src=images/pic.gif border=0></td>")
                     Else
                         jg &= ("<td><a href='images/logo.gif' target=" & rs.Fields("type").Value & "><img src=images/pic.gif border=0  alt=" & rs.Fields("type").Value & "></td>")
                     End If
@@ -245,16 +288,18 @@ Public Class WebPagesCS
                 jg &= ("<tr bgcolor=" & ANS & "><td>产品型号</td><td>厂商</td><td>封装</td><td>简要描述</td><td>图片</td><td>资料</td><td>订购</td></tr> ")
                 For i = 1 To rs.PageSize
                     jg &= ("<tr bgcolor=" & BJS & " onmouseout='this.bgColor=""" & BJS & """' onmouseover='this.bgColor=""" & ANS & """'>")
-                    jg &= ("<td><a href=Products.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value & " target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a></td>")
-                    'jg &= ("<td><a href=""" & Checkstr(rs.Fields("type").Value) & "_" & rs.Fields("id").Value & ".html"" target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a></td>")
-
+                    Dim ll As String
+                    If imode = 1 Then
+                        ll = "Product.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value
+                    Else
+                        ll = Checkstr(rs.Fields("type").Value) & "_" & rs.Fields("id").Value & ".html"
+                    End If
+                    jg &= ("<td><a href=""" & ll & """ target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a></td>")
                     jg &= ("<td>" & rs.Fields("manufactory").Value & "</td>")
                     jg &= ("<td>" & rs.Fields("fz").Value & "</td>")
                     jg &= ("<td>" & rs.Fields("shortDesc").Value & "</td>")
-
-
                     If rs.Fields("productimg").Value <> "" Then
-                        jg &= ("<td><a href='photos/" & rs.Fields("productimg").Value & "' target=" & rs.Fields("type").Value & "><img src=images/pic.gif border=0></td>")
+                        jg &= ("<td><a href='<<Remote_Center_Photos>>/" & rs.Fields("productimg").Value & "' target=" & rs.Fields("type").Value & "><img src=images/pic.gif border=0></td>")
                     Else
                         jg &= ("<td><a href='images/logo.gif' target=" & rs.Fields("type").Value & "><img src=images/pic.gif border=0  alt=" & rs.Fields("type").Value & "></td>")
                     End If
@@ -347,9 +392,11 @@ Public Class WebPagesCS
         Dim conny As New ADODB.Connection
         Dim i As Integer
         jg = ""
-
         CC.Connecttodb()
         If conny.State = 0 Then conny.Open(CC.setConstr(DBord_ecms))
+        BJS = GetSystemInfo("013")
+        ANS = GetSystemInfo("012")
+
         Select Case mode
             Case 1
                 sql = "SELECT  top 200 id,type,manufactory,shortDesc,clicknum from manual where type like '%" & Skey & "%' or manufactory like '%" & Skey & "%' or shortdesc like '%" & Skey & "%'"
@@ -509,18 +556,15 @@ Public Class WebPagesCS
     Function ShowAtt(ByVal s)
         Dim f As Object
         Dim i As Integer
-        Dim jg As String
+        Dim jg, mfile As String
         f = Split(s, "|")
         jg = "<ul>"
         For i = 0 To UBound(f) - 1 Step 2
-            If Left(f(i), 1) = "\" Then
-                'jg &= "<li><a target=_blank href=viewManual.aspx?p=" & Server.UrlEncode("/DOC" & f(i)) & ">" & f(i) & "(" & f(i + 1) & ")<img src=""images/pdf.gif"" border=0></a>"
+            mfile = Center_ManualUrl & "\" & CC.DBord2path(DBord_ecms) & "\" & f(i)
+            If File.Exists(mfile) Then
+                jg &= "<li><a target=_blank href=viewManual.aspx?p=" & f(i) & ">" & f(i) & "(" & f(i + 1) & ")<img src=""images/pdf.gif"" border=0></a>"
             Else
-                'If File.Exists(Server.MapPath("manual/" & f(i))) Then
-                ' jg &= "<li><a target=_blank href=viewManual.aspx?p=" & Server.UrlEncode("manual/" & f(i)) & ">" & f(i) & "(" & f(i + 1) & ")<img src=""images/pdf.gif"" border=0></a>"
-                'Else
-                'jg &= "<li><a target=_blank href=viewManual.aspx?p=" & Server.UrlEncode("/icdemi.pdf") & ">" & f(i) & "(" & f(i + 1) & ")<img src=""images/pdf.gif"" border=0></a>"
-                'End If
+                jg &= "<li><a target=_blank href=viewManual.aspx?p=" & "noManual.pdf>" & f(i) & "(" & f(i + 1) & ")<img src=""images/pdf.gif"" border=0></a>"
             End If
         Next
         jg &= "<ul>"

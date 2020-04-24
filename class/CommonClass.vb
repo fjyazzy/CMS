@@ -24,18 +24,19 @@ Public Class CommonClass
         pwd = System.Configuration.ConfigurationManager.AppSettings.Item("SQL_PASSWORD")
         ConString(1) = "Driver={SQL Server}; Server=" & servers & "; Database=" & dbs & "; Uid=" & uid & "; Pwd=" & pwd
 
+        '获取Access数据库数量
+        DBNUMS = System.Configuration.ConfigurationManager.AppSettings.Item("DBNUMS")
         '配置连接Access数据库
         Dim i As Integer
-        For i = 1 To 6
+        For i = 1 To DBNUMS
             accessDb(i) = System.Configuration.ConfigurationManager.AppSettings.Item("ACCESS_DB" & i)
             ConString(i) = "PROVIDER=Microsoft.Jet.OLEDB.4.0;Jet OLEDB:Database Password=05983602120;DATA Source=" & accessDb(i)
         Next
 
-        '设置当前电子销售网数据库ID,可在程序中根据需要修改
-        DBord_ecms = System.Configuration.ConfigurationManager.AppSettings.Item("DBORD")
         '设置图片服务器和文档服务器的目录
-        PicUrl = System.Configuration.ConfigurationManager.AppSettings.Item("Center_photos")
-        ManualUrl = System.Configuration.ConfigurationManager.AppSettings.Item("Center_Manuals")
+        Center_PicUrl = System.Configuration.ConfigurationManager.AppSettings.Item("Center_photos")
+        Center_ManualUrl = System.Configuration.ConfigurationManager.AppSettings.Item("Center_Manuals")
+        Center_CsvUrl = System.Configuration.ConfigurationManager.AppSettings.Item("Center_Csv")
 
 
     End Sub
@@ -65,11 +66,11 @@ Public Class CommonClass
                 jg = "loveu"
             Case 6
                 jg = "Ecms"
-
+            Case 6
+                jg = "Ecmscn"
         End Select
         Return jg
     End Function
-
     '调用功能是可通过函数检查权限
     '结果：1：有权限， 0：没有权限
     Function getQx(ByVal nickname As String, ByVal qxid As Integer) As Integer
@@ -80,10 +81,9 @@ Public Class CommonClass
         Dim Conn As New ADODB.Connection
         Connecttodb()
         If Conn.State = 0 Then Conn.Open(cc.setConstr(1))
-
         rsx.Open("Select  * from users where Username='" & nickname & "'", Conn, 1, 1)
         If Not rsx.EOF Then
-            If System.Convert.IsDBNull(rsx.Fields("qxj").Value) = true Then
+            If System.Convert.IsDBNull(rsx.Fields("qxj").Value) = True Then
                 ixx = 0
             Else
                 Dim f() As String = Split(rsx.Fields("qxj").Value, "|")
@@ -95,6 +95,8 @@ Public Class CommonClass
                     End If
                 Next
             End If
+            ' 设置同类数据库ID
+            DBord_ecms = rsx.Fields("DBord").Value
         Else
             ixx = 0
         End If
@@ -108,11 +110,7 @@ Public Class CommonClass
 
         Return ixx
     End Function
-
-
-
     ' 检查输入字符号串
-    '
     Function Checkstr(ByVal Str)
         Dim sql_injdata As String
         Dim SQL_inj
@@ -139,7 +137,7 @@ Public Class CommonClass
         str = Mid(fn, intExt)
         Dim jg As String
         Select Case LCase(str)
-            Case ".gif", ".jpg", ".flv", ".swf", ".mov", ".wmv", ".xls", ".txt", ".doc", ".rar", ".ppt", ".zip", ".pdf"
+            Case ".gif", ".jpg", ".flv", ".swf", ".mov", ".wmv", ".xls", ".txt", ".doc", ".rar", ".ppt", ".zip", ".pdf", ".png"
                 jg = LCase(str)
             Case Else
                 jg = ""
@@ -162,7 +160,6 @@ Public Class CommonClass
         Next
         CheckFileName = Replace(str, "|", "_", 1, -1, 1)
     End Function
-
     '获得软件的基本信息
     '结果: SOFTNAME,SOFTVERSION 为全局变量
     '设置：
@@ -200,7 +197,6 @@ Public Class CommonClass
         Conn.Close()
 
     End Sub
-
     Function Alert(ByVal str) As String
         Return "<script language=javascript>alert('" & str & "')</script>"
     End Function
@@ -211,11 +207,9 @@ Public Class CommonClass
         jg &= "</script>"
         Return jg
     End Function
-
     Public Function CheckValidationResult(ByVal sender As Object, ByVal certificate As X509Certificate, ByVal chain As X509Chain, ByVal errors As SslPolicyErrors) As Boolean
         Return True
     End Function
-
     Public Function getWebpage(ByVal url As String, ByVal method1 As String) As String
         Dim httpReq As HttpWebRequest
         If Left(url.ToLower, 5) = "https" Then
@@ -228,7 +222,7 @@ Public Class CommonClass
         Dim httpResp As System.Net.HttpWebResponse
 
         Dim Html As String
-        try
+        Try
             httpReq.Method = method1
             httpReq.KeepAlive = False
             httpReq.CookieContainer = wcc
@@ -238,12 +232,10 @@ Public Class CommonClass
             Html = reader.ReadToEnd()
         Catch ex As Exception
             Html = ex.Message.ToString
-        End try
+        End Try
 
         Return Html
     End Function
-
-
     ''' <summary>
     ''' 弹出编辑和添加对话窗
     ''' </summary>
@@ -267,43 +259,38 @@ Public Class CommonClass
         Return jg
     End Function
 
+    'CSV文件分割
+    Function CsvSplit(ByVal lineStr As String) As String()
+        Dim f(), g(100) As String
+        Dim tempStr As String
+        Dim i, j, k As Integer
+        j = 0
+        f = Split(lineStr, ",")
+        For i = 0 To UBound(f)
+            If InStr(f(i), """") > 0 Then
+                tempStr = Replace(f(i), """", "")
+                For k = i + 1 To UBound(f)
+                    tempStr = tempStr & "," & Replace(f(k), """", "")
+                    If InStr(f(k), """") > 0 Then
+                        Exit For
+                    End If
+                Next
+                i = k
+                g(j) = tempStr
+                j = j + 1
+            Else
+                g(j) = f(i)
+                j = j + 1
+            End If
+        Next
 
+        k = j - 1
+        Dim h(k) As String
+        For i = 0 To k
+            h(i) = g(i)
+        Next
 
-    ''' <summary>
-    ''' 设置外网导航栏
-    ''' </summary>
-    ''' <param name="DBOrd"></param>
-    ''' <returns></returns>
-    Function webDHL(ByVal DBOrd As String) As String
-        Dim jg As String = ""
-        Select Case DBOrd
-            Case "4"
-                jg &= "<a href=index.aspx>首页</a> |"
-                jg &= "<a href=syfw.aspx>试验服务</a> |"
-                jg &= "<a href=jxfw.aspx>检修服务</a> |"
-                jg &= "<a href=cpdz.aspx>产品定制</a> |"
-                jg &= "<a href=Connectus.aspx>联系我们</a> |"
-                jg &= "<a href=ShopCart.aspx>购物车</a> |"
-                jg &= "<a href=me.aspx>我的</a>"
-
-        End Select
-        Return jg
-    End Function
-
-    Function webPage(ByVal DBOrd As String, ByVal ItemNo As String) As String
-        Dim jg As String = ""
-        Dim rsx As New ADODB.Recordset
-        Dim Conn As New ADODB.Connection
-        Connecttodb()
-        If Conn.State = 0 Then Conn.Open(setConstr(DBOrd))
-        rsx.Open("select  * from wPages where itemno='" & ItemNo & "'", Conn, 1, 1)
-        If Not rsx.EOF Then
-            jg = rsx.Fields("itemText").Value
-        Else
-            jg = "<h3>网页迷路了,请联系郑志勇（13950937003）</h3>"
-        End If
-        rsx.Close()
-        Return jg
+        Return h
     End Function
 
 End Class

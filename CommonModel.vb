@@ -18,8 +18,12 @@ Module CommonModel
 
     '系统配置变量
     Public DBord_ecms As Integer
-    Public PicUrl As String
-    Public ManualUrl As String
+    Public DBNUMS As Integer
+
+    Public Center_PicUrl As String
+    Public Center_ManualUrl As String
+    Public Center_CsvUrl As String
+
 
     ' Cookies 说明
     '

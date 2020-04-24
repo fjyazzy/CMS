@@ -156,7 +156,7 @@ Public Class Add_E_Products
             Dim Imageurl As String = ""
             Dim jiok As Integer = 0
 
-            ImagePath = PicUrl & "\" & CC.DBord2path(DBord_ecms)
+            ImagePath = Center_PicUrl & "\" & CC.DBord2path(DBord_ecms)
             Imageurl = "..\..\Center_Photos\" & CC.DBord2path(DBord_ecms)
 
             '删除原来的产品图片
@@ -221,7 +221,7 @@ Public Class Add_E_Products
                         System.IO.File.Delete(SaveLocation)
                     End If
 
-                    Label2.Text = "<a href='" & Imageurl & "/" & nf & "' target=_blank align=center><img src='" & PicUrl & "/t_" & nf & "' border=0></a>"
+                    Label2.Text = "<a href='" & Imageurl & "/" & nf & "' target=_blank align=center><img src='" & Center_PicUrl & "/t_" & nf & "' border=0></a>"
                     rs.Fields("productImg").Value = nf
                 Catch Exc As Exception
                     Response.Write(CC.Alert("Error:这种图片保存错误! "))

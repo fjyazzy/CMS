@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Upload\CMSv1\pub</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="accounts/chgpw.aspx">
+      <publishTime>03/28/2020 11:05:30</publishTime>
+    </File>
+    <File Include="accounts/forgetpw.aspx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="accounts/help.aspx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="accounts/ureg.aspx">
+      <publishTime>04/18/2020 17:34:48</publishTime>
+    </File>
+    <File Include="admin/aboutus.aspx">
+      <publishTime>02/22/2020 18:29:03</publishTime>
+    </File>
+    <File Include="admin/AddImages.aspx">
+      <publishTime>04/19/2020 10:29:21</publishTime>
+    </File>
+    <File Include="admin/Additems.aspx">
+      <publishTime>03/28/2020 11:05:30</publishTime>
+    </File>
+    <File Include="admin/Additems_Mx.aspx">
+      <publishTime>02/23/2020 11:42:40</publishTime>
+    </File>
+    <File Include="admin/bar.htm">
+      <publishTime>03/28/2020 11:05:30</publishTime>
+    </File>
+    <File Include="admin/BMenu.aspx">
+      <publishTime>03/28/2020 11:05:30</publishTime>
+    </File>
+    <File Include="admin/CSVImport.aspx">
+      <publishTime>04/19/2020 07:56:01</publishTime>
+    </File>
+    <File Include="admin/Ecms/Add_E_Products.aspx">
+      <publishTime>03/28/2020 16:09:04</publishTime>
+    </File>
+    <File Include="admin/Ecms/Add_inquirys.aspx">
+      <publishTime>03/28/2020 20:50:48</publishTime>
+    </File>
+    <File Include="admin/Ecms/Add_manual.aspx">
+      <publishTime>04/19/2020 10:54:14</publishTime>
+    </File>
+    <File Include="admin/Ecms/Add_Orders.aspx">
+      <publishTime>03/28/2020 21:12:52</publishTime>
+    </File>
+    <File Include="admin/Ecms/C_manual.aspx">
+      <publishTime>04/05/2020 13:55:14</publishTime>
+    </File>
+    <File Include="admin/Ecms/C_Products.aspx">
+      <publishTime>03/28/2020 11:05:04</publishTime>
+    </File>
+    <File Include="admin/Ecms/C_webpages.aspx">
+      <publishTime>03/28/2020 20:23:53</publishTime>
+    </File>
+    <File Include="admin/Ecms/Ecms_Products.aspx">
+      <publishTime>03/28/2020 11:05:04</publishTime>
+    </File>
+    <File Include="admin/Ecms/gys.aspx">
+      <publishTime>03/28/2020 11:05:04</publishTime>
+    </File>
+    <File Include="admin/Ecms/Inquirys.aspx">
+      <publishTime>03/28/2020 11:05:04</publishTime>
+    </File>
+    <File Include="admin/Ecms/kdd.aspx">
+      <publishTime>03/30/2020 19:37:26</publishTime>
+    </File>
+    <File Include="admin/Ecms/Manual.aspx">
+      <publishTime>03/28/2020 16:25:30</publishTime>
+    </File>
+    <File Include="admin/Ecms/Orders.aspx">
+      <publishTime>03/28/2020 11:05:04</publishTime>
+    </File>
+    <File Include="admin/Ecms/Sales.aspx">
+      <publishTime>03/28/2020 11:05:31</publishTime>
+    </File>
+    <File Include="admin/Ecms/soft.aspx">
+      <publishTime>03/28/2020 11:05:31</publishTime>
+    </File>
+    <File Include="admin/Ecms/Webpages.aspx">
+      <publishTime>03/30/2020 21:43:46</publishTime>
+    </File>
+    <File Include="admin/Exam/ks3.aspx">
+      <publishTime>03/28/2020 11:05:31</publishTime>
+    </File>
+    <File Include="admin/Exam/ksgl.aspx">
+      <publishTime>03/28/2020 11:05:04</publishTime>
+    </File>
+    <File Include="admin/Exam/score.aspx">
+      <publishTime>03/28/2020 11:05:31</publishTime>
+    </File>
+    <File Include="admin/Exam/sumzf.aspx">
+      <publishTime>03/28/2020 11:05:31</publishTime>
+    </File>
+    <File Include="admin/Exam/tkt.aspx">
+      <publishTime>03/28/2020 11:05:04</publishTime>
+    </File>
+    <File Include="admin/Exam/wdt.aspx">
+      <publishTime>03/28/2020 11:05:04</publishTime>
+    </File>
+    <File Include="admin/Exam/xzt.aspx">
+      <publishTime>03/28/2020 11:05:04</publishTime>
+    </File>
+    <File Include="admin/Header.aspx">
+      <publishTime>03/28/2020 11:05:31</publishTime>
+    </File>
+    <File Include="admin/index.aspx">
+      <publishTime>02/19/2020 22:38:15</publishTime>
+    </File>
+    <File Include="admin/login.aspx">
+      <publishTime>03/28/2020 11:05:31</publishTime>
+    </File>
+    <File Include="admin/logout.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="admin/pages/custom.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/pages/ml.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/pages/pagelist.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/pages/umessage.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/pages/wpages.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/Search.aspx">
+      <publishTime>03/30/2020 20:36:32</publishTime>
+    </File>
+    <File Include="admin/SearchResult.aspx">
+      <publishTime>03/30/2020 20:11:54</publishTime>
+    </File>
+    <File Include="admin/Sys/apicates.aspx">
+      <publishTime>04/05/2020 21:30:54</publishTime>
+    </File>
+    <File Include="admin/Sys/apiItems.aspx">
+      <publishTime>04/05/2020 21:33:27</publishTime>
+    </File>
+    <File Include="admin/Sys/DBSql.aspx">
+      <publishTime>04/05/2020 13:52:43</publishTime>
+    </File>
+    <File Include="admin/Sys/Manager.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/Sys/menu.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/Sys/Menuitem.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/Sys/soft.aspx">
+      <publishTime>03/28/2020 11:05:32</publishTime>
+    </File>
+    <File Include="admin/Sys/tbdict.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/Xfdq/Category.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/Xfdq/Csbitem.aspx">
+      <publishTime>03/28/2020 11:05:32</publishTime>
+    </File>
+    <File Include="admin/Xfdq/csbjb.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/Xfdq/csbjb2.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/Xfdq/csbjbbd.aspx">
+      <publishTime>03/28/2020 11:05:32</publishTime>
+    </File>
+    <File Include="admin/Xfdq/Cxbitem.aspx">
+      <publishTime>03/28/2020 11:05:32</publishTime>
+    </File>
+    <File Include="admin/Xfdq/cxbjb.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/Xfdq/cxbjb2.aspx">
+      <publishTime>03/28/2020 11:05:05</publishTime>
+    </File>
+    <File Include="admin/Xfdq/cxbjbbd.aspx">
+      <publishTime>03/28/2020 11:05:32</publishTime>
+    </File>
+    <File Include="admin/Xfdq/Product.aspx">
+      <publishTime>03/28/2020 11:05:06</publishTime>
+    </File>
+    <File Include="admin/Xfdq/soft.aspx">
+      <publishTime>03/28/2020 11:05:33</publishTime>
+    </File>
+    <File Include="apis/Ecms/Ecms_OpenApi.ashx">
+      <publishTime>04/06/2020 13:46:06</publishTime>
+    </File>
+    <File Include="apis/Loveu/cu.aspx">
+      <publishTime>02/24/2020 21:03:32</publishTime>
+    </File>
+    <File Include="apis/Loveu/hi.aspx">
+      <publishTime>02/24/2020 21:04:03</publishTime>
+    </File>
+    <File Include="apis/Loveu/Pt.aspx">
+      <publishTime>02/24/2020 21:04:03</publishTime>
+    </File>
+    <File Include="apis/wxcms/getCategory.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/getChoiceQues.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/getcompanyinfo.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/getExamSj.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/getHomePagelist.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/getMsg.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/getOpenid.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/getPage.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/getPagelist.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/getProfiles.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/GetScore.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/Lyb.ashx">
+      <publishTime>03/24/2019 08:47:38</publishTime>
+    </File>
+    <File Include="apis/wxcms/setting.ashx">
+      <publishTime>06/16/2019 15:56:54</publishTime>
+    </File>
+    <File Include="apis/wxcms/wxmenu.json">
+      <publishTime>03/03/2019 15:03:24</publishTime>
+    </File>
+    <File Include="apis/wxcms/Wxv.ashx">
+      <publishTime>03/03/2019 14:52:10</publishTime>
+    </File>
+    <File Include="apis/wxcms/公众号获取AccessToken.txt">
+      <publishTime>03/02/2019 08:26:40</publishTime>
+    </File>
+    <File Include="bin/Cms1.dll">
+      <publishTime>04/24/2020 16:54:00</publishTime>
+    </File>
+    <File Include="bin/Cms1.xml">
+      <publishTime>04/24/2020 16:54:00</publishTime>
+    </File>
+    <File Include="bin/Interop.ADODB.dll">
+      <publishTime>04/06/2020 12:19:41</publishTime>
+    </File>
+    <File Include="cmscss/home/style1.css">
+      <publishTime>02/19/2020 23:01:12</publishTime>
+    </File>
+    <File Include="cmscss/home/style2.css">
+      <publishTime>03/28/2020 11:05:06</publishTime>
+    </File>
+    <File Include="cmscss/Sdialog.css">
+      <publishTime>02/23/2020 10:21:12</publishTime>
+    </File>
+    <File Include="cmscss/style.css">
+      <publishTime>03/28/2020 11:05:06</publishTime>
+    </File>
+    <File Include="cmsjs/bmenu.js">
+      <publishTime>04/19/2020 16:35:51</publishTime>
+    </File>
+    <File Include="cmsjs/common.js">
+      <publishTime>02/16/2020 11:54:13</publishTime>
+    </File>
+    <File Include="cmsjs/Sdialog.js">
+      <publishTime>02/23/2020 10:22:29</publishTime>
+    </File>
+    <File Include="components/LoginApi.ascx">
+      <publishTime>03/28/2020 11:05:33</publishTime>
+    </File>
+    <File Include="components/pagebottom.ascx">
+      <publishTime>03/28/2020 11:05:33</publishTime>
+    </File>
+    <File Include="components/TableAlldata.ascx">
+      <publishTime>03/28/2020 11:05:33</publishTime>
+    </File>
+    <File Include="components/Table_MX.ascx">
+      <publishTime>03/28/2020 11:05:33</publishTime>
+    </File>
+    <File Include="images/home/address.gif">
+      <publishTime>06/16/2019 15:56:55</publishTime>
+    </File>
+    <File Include="images/home/menu_hide.gif">
+      <publishTime>06/16/2019 15:56:55</publishTime>
+    </File>
+    <File Include="images/home/menu_show.gif">
+      <publishTime>06/16/2019 15:56:55</publishTime>
+    </File>
+    <File Include="images/home/plus.gif">
+      <publishTime>06/16/2019 15:56:55</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/24/2020 16:53:16</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
