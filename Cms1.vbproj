@@ -123,7 +123,6 @@
     <Content Include="admin\Sys\Manager.aspx" />
     <Content Include="admin\Sys\menu.aspx" />
     <Content Include="admin\Sys\Menuitem.aspx" />
-    <Content Include="admin\Search.aspx" />
     <Content Include="admin\Sys\soft.aspx" />
     <Content Include="admin\Sys\tbdict.aspx" />
     <Content Include="admin\Xfdq\Csbitem.aspx" />
@@ -420,13 +419,6 @@
     </Compile>
     <Compile Include="admin\Exam\sumzf.aspx.vb">
       <DependentUpon>sumzf.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="admin\Search.aspx.designer.vb">
-      <DependentUpon>Search.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\Search.aspx.vb">
-      <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="admin\SearchResult.aspx.designer.vb">

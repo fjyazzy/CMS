@@ -37,9 +37,6 @@ Public Class Header
         Label1.Text = strDwmc & "-"
         Label1.Text &= SOFTNAME & SOFTVERSION & "-"
         Label1.Text &= Server.UrlDecode(Request.Cookies("name").Value) & " <img src=../images/home/address.gif> "
-
-        Label1.Text &= "<a target=bmenu href=bmenu.aspx>系统功能</a> | "
-        Label1.Text &= "<a target=bmenu href=search.aspx>全局搜索</a> | "
         Label1.Text &= "<a target=mainx href=../accounts/help.aspx>帮助</a> | "
         Label1.Text &= "<A target=mainx href=../accounts/chgpw.aspx>密码修改</A> |"
         Label1.Text &= "<A target=_parent href=login.aspx>重新登录</A> | "

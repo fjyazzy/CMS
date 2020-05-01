@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Sales
     
     '''<summary>
+    '''lLink 控件。
+    '''</summary>
+    '''<remarks>
+    '''自动生成的字段。
+    '''若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+    '''</remarks>
+    Protected WithEvents lLink As Global.System.Web.UI.HtmlControls.HtmlLink
+    
+    '''<summary>
     '''form1 控件。
     '''</summary>
     '''<remarks>

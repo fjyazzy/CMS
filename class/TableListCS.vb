@@ -114,7 +114,7 @@ Public Class TableListCS
             jgx &= "<td>"
             jgx &= "<a href=# onclick=""if(confirm('是否删除本行数据?')) { window.location.href='" & FileName & "?Cid=" & Cid & "&lx=" & lx & "&px=" & px & "&gn=del&id=" & id & "'; }"">删除</a>"
             jgx &= "|"
-            jgx &= "<a href=# onclick=""" & cc.ShowDialog(1, "../" & FileName2 & "?Cid=" & Cid & "&dbord=" & DBORD & "&dbname=" & DBname & "&TableMode=" & TableMode & "&id=" & id & "&isPIC=" & isPic， "编辑项目", w， h) & """>修改</a>"
+            jgx &= "<a href=# onclick=""changeFsize();" & CC.ShowDialog(1, "../" & FileName2 & "?Cid=" & Cid & "&dbord=" & DBORD & "&dbname=" & DBname & "&TableMode=" & TableMode & "&id=" & id & "&isPIC=" & isPic， "编辑项目", w， h) & """>修改</a>"
 
             '根据dbName的额外追加功能
             '案例：参看雄风电气的承修、承试报价表
@@ -175,13 +175,13 @@ Public Class TableListCS
         rs.Open("select  * from TBDict where TBName='" & DbName & "'", Conn2, 1, 1)
         If Not rs.EOF Then
             If Len(trim(rs.Fields("ml").Value)) > 1 Then
-                If iMode = 1 Then
-                    ml = trim(rs.Fields("ml").Value)
+                If iMode = 1 Or iMode = 2 Then
+                    ml = Trim(rs.Fields("ml").Value)
                 End If
                 Dim i As Integer = 1
                 For i = 1 To 3
                     If Len(trim(rs.Fields("furl" & i).Value)) > 1 Then
-                        jg &= " | <a target=Chlidb href=" & ml & rs.Fields("furl" & i).Value & "?Cid=" & xid & ">" & rs.Fields("fname" & i).Value & "</a>"
+                        jg &= " | <a href=# onclick=""top.document.all('Contentx').rows='30%,70%,*';top.document.all('mainx1').src='" & ml & rs.Fields("furl" & i).Value & "?Cid=" & xid & "'"">" & rs.Fields("fname" & i).Value & "</a>"
                     End If
                 Next
             End If

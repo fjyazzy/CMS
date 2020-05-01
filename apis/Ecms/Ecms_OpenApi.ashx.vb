@@ -20,7 +20,8 @@ Public Class Ecms_OpenApi
                 Dim str2 As String = CC.Checkstr(context.Request("str2"))
                 jg = WCS.GetTitle(str1, str2)
             Case "GetCategoryList"
-                jg = WCS.GetCategoryList()
+                Dim str1 As String = CC.Checkstr(context.Request("str1"))
+                jg = WCS.GetCategoryList(str1)
             Case "SearchP"
                 Dim mode As String = CC.Checkstr(context.Request("mode"))
                 Dim skey As String = CC.Checkstr(context.Request("skey"))
@@ -59,6 +60,13 @@ Public Class Ecms_OpenApi
             Case "GetProduct4id"
                 Dim cid As String = CC.Checkstr(context.Request("cid"))
                 jg = WCS.GetProduct4id(cid)
+            Case "GetSearchBox"
+                jg = WCS.GetSearchBox()
+            Case "GetNewList"
+                jg = WCS.GetNewList()
+            Case "GetNews4id"
+                Dim cid As String = CC.Checkstr(context.Request("cid"))
+                jg = WCS.GetNews4id(cid)
             Case "saveOrderItem"
                 Dim name As String = CC.Checkstr(context.Request("name"))
                 Dim tel As String = CC.Checkstr(context.Request("tel"))

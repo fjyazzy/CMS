@@ -14,7 +14,6 @@
 
         '设置数据库
         tadata.DBOrd = DBord_ecms
-        Response.Write("111111111111111111111:" & DBord_ecms)
 
         ''这里可修改tddata参数
         ' 设置子表的访问条件x

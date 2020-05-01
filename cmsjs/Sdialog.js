@@ -1,4 +1,11 @@
-﻿/*
+﻿function changeFsize() {
+    var a = window.frameElement.id;
+    if (a == "mainx") {
+        top.document.all('Contentx').rows = '99%,1%,*'
+    };
+}
+
+/*
 弹出窗口调用过程
 Sdialog.js中的showDetail在类中Commonclass中被函数ShowDialog调用
 showDialog函数被类TableListCS和组件TableAlldata调用。

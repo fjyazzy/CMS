@@ -10,21 +10,15 @@
 		<script type="text/javascript" src="../cmsjs/bmenu.js"></script>
 	</HEAD>
 	<body onkeydown="bb(event.keyCode)">
+        <form id="form1" runat="server">
 		<table border="0" cellSpacing="0" cellPadding="0" width="100%" height="100%">
-			<tr>
-				<td colSpan="2" height="200" class="menu" ></td>
-			</tr>
-			<tr>
-				<td height="100%" vAlign="top" colSpan="2" align="center">
-						<table border="0" width="100%">
-			            <tr>
-				        <td colspan="2" valign="top">
-					    <asp:Label id="Label1" runat="server"></asp:Label>
-				        </td>
-			            </tr>
-		                </table>
-                </td>
-			</tr>
-		</table>
+			<tr><td class="gndh" ></td></tr>
+            <tr><td valign="top"><asp:Label id="Label2" runat="server"></asp:Label></td></tr>
+            <tr><td class="myMenu" height="1"></td></tr>
+			<tr><td valign="top"><asp:Label id="Label1" runat="server"></asp:Label></td></tr>
+			<tr><td height="70%;"></td></tr>
+
+	    </table>
+        </form>
 	</body>
 </HTML>

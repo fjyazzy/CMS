@@ -7,7 +7,7 @@ Public Class WebPagesCS
         Dim jg As String = ""
         CC.Connecttodb()
         If Conn.State = 0 Then Conn.Open(CC.setConstr(DBord_ecms))
-        rs.Open("SELECT  * from systeminfo where itemno='" & itemno & "'", Conn, 1, 3, 1)
+        rs.Open("SELECT  * from systeminfo where itemno='" & itemno & "'", Conn, 1, 1, 1)
         If Not rs.EOF Then
             jg = Replace(rs.Fields("itemtext").Value, vbCrLf, " ")
         End If
@@ -22,7 +22,7 @@ Public Class WebPagesCS
         Dim jg As String = ""
         CC.Connecttodb()
         If Conn.State = 0 Then Conn.Open(CC.setConstr(DBord_ecms))
-        rs.Open("SELECT  * from webpages where xm='" & mc & "'", Conn, 1, 3, 1)
+        rs.Open("SELECT  * from webpages where xm='" & mc & "'", Conn, 1, 1, 1)
         If Not rs.EOF Then
             jg = Replace(rs.Fields("nr").Value, vbCrLf, " ")
         End If
@@ -50,39 +50,33 @@ Public Class WebPagesCS
 
     End Function
     ' 从Category_product表中取分类列表
-    Public Function GetCategoryList() As String
+    Public Function GetCategoryList(ByVal iMode As Integer) As String
         Dim rs As New ADODB.Recordset
         Dim sql, jg As String
         Dim conn As New ADODB.Connection
-        Dim lixa As Integer
         CC.Connecttodb()
         If conn.State = 0 Then conn.Open(CC.setConstr(DBord_ecms))
         BJS = GetSystemInfo("013")
-        jg = "<div style=""cursor:hand;background-color:" & BJS & ";"" onmouseover=""ShowDiv('clist')"" onmouseout=""HideDiv('clist')"">产品分类</div>"
+        If iMode = 1 Then
+            jg = "<div class=""CategoryBar"" onmouseover=""ShowDiv('clist')"" onmouseout=""HideDiv('clist')""> 产品分类 </div>"
+            jg &= "<div class=""cclist"" style=""display:none;"" id=""clist"" onmouseover=""ShowDiv('clist')""  onmouseout=""HideDiv('clist')"">"
+            jg &= "<ul>"
+        Else
+            jg = "<div class=""CategoryBar""> 产品分类 </div>"
+            jg &= "<div class=""cclist"" id=""clist"">"
+            jg &= "<ul>"
+        End If
         sql = "SELECT  * from category_products"
         rs.Open(sql, conn, 0, 1, 1)
-        jg &= "<div id=""clist"" style=""POSITION: absolute; DISPLAY: none;background-color:" & BJS & ";""  onmouseover=""ShowDiv('clist')""  onmouseout=""HideDiv('clist')""><table border=0 width=100% >"
         While Not rs.EOF
-            If lixa = 0 Then
-                jg &= "<tr>"
-            End If
-            jg &= "<td>"
-            jg &= "<a href=catalogs.aspx?id=" & rs.Fields("id").Value & " alt=""" + rs.Fields("catalogDesc").Value + """>"
-            jg &= "<b>" & rs.Fields("catalogname").Value & "</b></a>"
-            jg &= "</td>"
-
+            jg &= "<li><a href=catalogs.aspx?id=" & rs.Fields("id").Value & " alt=""" + rs.Fields("catalogDesc").Value + """>"
+            jg &= rs.Fields("catalogname").Value & "</a></li>"
             rs.MoveNext()
-            If lixa = 0 Then
-                jg &= "</tr>"
-                lixa = 0
-            Else
-                lixa = lixa + 1
-            End If
         End While
 
         rs.Close()
         conn.Close()
-        jg &= "</table></div>"
+        jg &= "</div>"
 
         Return jg
 
@@ -90,10 +84,11 @@ Public Class WebPagesCS
     ' 制作搜索框
     Public Function GetSearchBox()
         Dim jg As String
-        jg = "<form action=catalogs.aspx>"
-        jg &= "<input type=text name=skey size=60>"
+        jg = "<div Class=""search bar6""><form action=catalogs.aspx>"
+        jg &= "<input type=text placeholder=""请输入型号或产品相关信息""  name=skey size=60>&nbsp;"
         jg &= "<input type=submit name='搜索' value='搜索'>"
-        jg &= "</form>"
+        jg &= "</form></div>"
+        jg &= SearchP(15, "1", "1", "Catalogs.aspx")
         Return jg
 
     End Function
@@ -112,11 +107,8 @@ Public Class WebPagesCS
             page = CInt(pagex)
         End If
         jg = ""
-
         CC.Connecttodb()
         If conn.State = 0 Then conn.Open(CC.setConstr(DBord_ecms))
-        BJS = GetSystemInfo("013")
-        ANS = GetSystemInfo("012")
 
         Select Case mode
             Case 1
@@ -134,7 +126,7 @@ Public Class WebPagesCS
             Case 8
                 sql = "SELECT top 8 id,type,productimg  from ecms_products where isdel=0 and len(productimg)>5 order by visitTime desc ,uptime desc,id desc"
             Case 15
-                sql = "SELECT TOP 8 id,type type FROM ecms_Products WHERE (IsDel = 0) ORDER BY VisitTime DESC"
+                sql = "SELECT TOP 8 id,type FROM ecms_Products WHERE (IsDel = 0) ORDER BY VisitTime DESC"
             Case 9
                 sql = "SELECT top 15 id,type  from ecms_products where isdel=0 order by visitTime desc ,uptime desc,id desc"
             Case 10
@@ -149,11 +141,11 @@ Public Class WebPagesCS
             Return jg
         End If
 
-        jg &= ("<table border=0 width=100% cellpadding=0 callspacing=0 bgcolor=" & BJS & ">")
+        jg &= ("<div class=""plist""><table border=0 width=100% cellpadding=0 callspacing=0>")
         Select Case mode
             Case 2, 10
                 rs.PageSize = 20
-                jg &= "<tr bgcolor=" & BJS & "><td align=right colspan=12>"
+                jg &= "<tr><td align=right colspan=12>"
                 If page = 0 Then page = 1
                 If page < 1 Then page = 1
                 If page > rs.PageCount Then page = rs.PageCount
@@ -207,13 +199,13 @@ Public Class WebPagesCS
                     If rs.EOF Then Exit For
                 Next
             Case 15
-                jg &= ("<tr><td>热门搜索:")
+                jg &= ("<tr><td><div class=""hotkey"">热门搜索:")
                 For i = 1 To rs.PageSize
                     jg &= ("<A href=catalogs.aspx?Mode=1&amp;skey=" & rs.Fields("type").Value & " target=" & rs.Fields("type").Value & ">" & rs.Fields("type").Value & "</a>| ")
                     rs.MoveNext()
                     If rs.EOF Then Exit For
                 Next
-                jg &= ("</td></tr>")
+                jg &= ("</div></td></tr>")
             Case 6
                 jg &= ("<tr><td>")
                 For i = 1 To rs.PageSize
@@ -245,9 +237,9 @@ Public Class WebPagesCS
                     If rs.EOF Then Exit For
                 Next
             Case 3
-                jg &= ("<tr bgcolor='" & ANS & "' height=25><td colspan=7><strong> &nbsp;◎最新上架产品及资料<strong></td></tr>")
+                jg &= ("<tr height=25><td colspan=7 class=""homebar3""><strong> &nbsp;◎最新上架产品及资料<strong></td></tr>")
                 For i = 1 To rs.PageSize
-                    jg &= ("<tr bgcolor=" & BJS & " onmouseout='this.bgColor=""" & BJS & """' onmouseover='this.bgColor=""" & ANS & """'>")
+                    jg &= ("<tr>")
 
                     Dim ll As String
                     If imode = 1 Then
@@ -285,9 +277,9 @@ Public Class WebPagesCS
                 Next
 
             Case Else
-                jg &= ("<tr bgcolor=" & ANS & "><td>产品型号</td><td>厂商</td><td>封装</td><td>简要描述</td><td>图片</td><td>资料</td><td>订购</td></tr> ")
+                jg &= ("<tr><td>产品型号</td><td>厂商</td><td>封装</td><td>简要描述</td><td>图片</td><td>资料</td><td>订购</td></tr> ")
                 For i = 1 To rs.PageSize
-                    jg &= ("<tr bgcolor=" & BJS & " onmouseout='this.bgColor=""" & BJS & """' onmouseover='this.bgColor=""" & ANS & """'>")
+                    jg &= ("<tr>")
                     Dim ll As String
                     If imode = 1 Then
                         ll = "Product.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & "&type=" & rs.Fields("type").Value
@@ -316,7 +308,7 @@ Public Class WebPagesCS
 
 
         End Select
-        jg &= ("</table>")
+        jg &= ("</table></div>")
         rs.Close()
         conn.Close()
         Return jg
@@ -327,38 +319,23 @@ Public Class WebPagesCS
         Dim rs As New ADODB.Recordset
         Dim sql, jg As String
         Dim conn As New ADODB.Connection
-        Dim lixa As Integer
 
         CC.Connecttodb()
         If conn.State = 0 Then conn.Open(CC.setConstr(DBord_ecms))
 
         sql = "SELECT  * from category_products"
         rs.Open(sql, conn, 0, 1, 1)
-        jg = "<table border=0 width=100% >"
+        jg = "<div class=""plist""><ul>"
         While Not rs.EOF
-            If lixa = 0 Then
-                jg &= "<tr>"
-            End If
-            jg &= "<td><table border=0 width=100% cellspacing=1 cellpadding=0>"
-            jg &= "<tr><td>类别:<a href=catalogs.aspx?id=" & rs.Fields("id").Value & "><b>" & rs.Fields("catalogname").Value & "</b></a>"
+            jg &= "<li>类别:<a href=catalogs.aspx?id=" & rs.Fields("id").Value & "><b>" & rs.Fields("catalogname").Value & "</b></a>"
             jg &= " - " & rs.Fields("catalogDesc").Value
-            jg &= "</td></tr><tr><td>"
-            ' jg &= cc.SearchP(4, rs.Fields("id").Value, 1, thisprog)
-            jg &= "</td></tr></table>"
-            jg &= "</td>"
-
+            jg &= "</li>"
             rs.MoveNext()
-            If lixa = 0 Then
-                jg &= "</tr>"
-                lixa = 0
-            Else
-                lixa = lixa + 1
-            End If
         End While
 
         rs.Close()
         conn.Close()
-        jg &= "</table>"
+        jg &= "</ul></div>"
         Return jg
     End Function
     ' 显示资料目录列表
@@ -371,9 +348,9 @@ Public Class WebPagesCS
 
         sql = "SELECT  * from category_manuals"
         rs.Open(sql, conn, 0, 1, 1)
-        jg = ""
+        jg = "<div class=""plist"">"
         While Not rs.EOF
-            jg = jg & "<h3>类别:<a href=category.aspx?id=" & rs.Fields("id").Value & "><b>" & rs.Fields("catalogname").Value & "</b></a></h3>"
+            jg = jg & "<h3> 类别:<a href=category.aspx?id=" & rs.Fields("id").Value & "><b>" & rs.Fields("catalogname").Value & "</b></a></h3>"
             jg = jg & "<table style=""width:100%""><tr><td>"
             jg = jg & SearchZl(2, rs.Fields("id").Value, 1, thisprog)
             jg = jg & "</td></tr></table>"
@@ -381,7 +358,7 @@ Public Class WebPagesCS
         End While
         rs.Close()
         conn.Close()
-        jg = jg & "</table>"
+        jg = jg & "</div>"
         Return jg
 
     End Function
@@ -394,9 +371,6 @@ Public Class WebPagesCS
         jg = ""
         CC.Connecttodb()
         If conny.State = 0 Then conny.Open(CC.setConstr(DBord_ecms))
-        BJS = GetSystemInfo("013")
-        ANS = GetSystemInfo("012")
-
         Select Case mode
             Case 1
                 sql = "SELECT  top 200 id,type,manufactory,shortDesc,clicknum from manual where type like '%" & Skey & "%' or manufactory like '%" & Skey & "%' or shortdesc like '%" & Skey & "%'"
@@ -414,9 +388,9 @@ Public Class WebPagesCS
             Return "数据更新中!"
         End If
 
-        jg &= ("<table border=0 width=100% >")
+        jg &= ("<div class=""plist""><table border=0 width=100% >")
         If mode <> 3 And mode <> 4 Then
-            jg &= "<tr bgcolor=" & BJS & "><td align=right colspan=12>"
+            jg &= "<tr><td align=right colspan=3>"
             If page = 0 Then page = 1
             If page < 1 Then page = 1
             If page > rs.PageCount Then page = rs.PageCount
@@ -433,46 +407,43 @@ Public Class WebPagesCS
         Else
             page = 1
         End If
+        jg &= "<tr><td colspan=3 bgcolor=#bfbfbf height=1></td></tr>"
 
         rs.PageSize = 20
         rs.AbsolutePage = page
-
-
-        jg &= ("<tr bgcolor=" & ANS & "><td width=600>资料名称</td><td>厂商</td><td>简要描述</td></tr> ")
+        jg &= "<tr><td align=left colspan=3><ul>"
         For i = 1 To rs.PageSize
             If rs.EOF Then Exit For
-            jg &= ("<tr  bgcolor=" & BJS & " onmouseout='this.bgColor=""" & BJS & """' onmouseover='this.bgColor=""" & ANS & """'>")
+            jg &= ("<li>")
             If Len(rs.Fields("type").Value) < 60 Then
-                jg &= ("<td><a href=Manual.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & " target=blank>" & rs.Fields("type").Value & "(" & rs.Fields("clicknum").Value & ")</a></td>")
+                jg &= ("<a href=Manual.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & " target=blank>" & rs.Fields("type").Value & "(" & rs.Fields("clicknum").Value & ")</a>-")
             Else
-                jg &= ("<td><a href=Manual.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & " target=blank>" & Left(rs.Fields("type").Value, 60) & "...(" & rs.Fields("clicknum").Value & ")</a></td>")
+                jg &= ("<a href=Manual.aspx?id=" & rs.Fields("id").Value & "&p=" & rs.Fields("type").Value & " target=blank>" & Left(rs.Fields("type").Value, 60) & "...(" & rs.Fields("clicknum").Value & ")</a>-")
             End If
-            jg &= ("<td>" & rs.Fields("manufactory").Value & "</td>")
+            jg &= rs.Fields("manufactory").Value & "-"
 
             If Len(rs.Fields("shortDesc").Value) < 60 Then
-                jg &= ("<td>" & rs.Fields("shortDesc").Value & "</td>")
+                jg &= rs.Fields("shortDesc").Value
             Else
-                jg &= ("<td>" & Left(rs.Fields("shortDesc").Value, 60) & "...</td>")
+                jg &= Left(rs.Fields("shortDesc").Value, 60) & "..."
             End If
-
-
-            jg &= ("</tr>")
+            jg &= ("</li>")
             rs.MoveNext()
             If rs.EOF Then Exit For
         Next
-        jg &= ("</table>")
+        jg &= "<tr><td colspan=3 bgcolor=#bfbfbf height=1></td></tr>"
+        jg &= ("</table></div>")
         rs.Close()
         conny.Close()
         Return jg
 
 
     End Function
+    ' 联系人控件
     Function lxfs() As String
         Dim jg As String
-        jg = "<table border=1 cellspacing=1 cellpadding=2 bordercolor=#abcdef width=280 bgcolor=" & BJS & ">"
-        jg &= "<tr><td colspan=2 align=center height=22  background=images/menubj.gif style='color:white;font-size:11pt;'><b>公司联系方式</b></td></tr>"
-
-
+        jg = "<table class=""lxr"" >"
+        jg &= "<tr><td colspan=2 align=center><b>公司联系方式</b></td></tr>"
         Dim rsy As New ADODB.Recordset
         Dim Conny As New ADODB.Connection
         CC.Connecttodb()
@@ -482,28 +453,28 @@ Public Class WebPagesCS
         While Not rsy.EOF
             Select Case Trim(rsy.Fields("xm").Value)
                 Case "电话"
-                    jg &= "<tr><td bgcolor=" & ANS & " align=center>销售电话</td>"
+                    jg &= "<tr><td align=center>销售电话</td>"
                     jg &= "<td>" & rsy.Fields("nr").Value & "</td></tr>"
                 Case "传真"
-                    jg &= "<tr><td bgcolor=" & ANS & " align=center>传真</td>"
+                    jg &= "<tr><td align=center>传真</td>"
                     jg &= "<td>" & rsy.Fields("nr").Value & "</td></tr>"
                 Case "手机"
-                    jg &= "<tr><td bgcolor=" & ANS & " align=center>手机热线</td>"
+                    jg &= "<tr><td align=center>手机热线</td>"
                     jg &= "<td>" & rsy.Fields("nr").Value & "</td></tr>"
                 Case "QQ"
-                    jg &= "<tr><td bgcolor=" & ANS & " align=center>联系QQ</td>"
+                    jg &= "<tr><td align=center>联系QQ</td>"
                     jg &= "<td><a target=blank href=tencent://message/?uin=" & rsy.Fields("nr").Value & "&amp;Site=Leo&amp;Menu=yes><img border=0 SRC=http://wpa.qq.com/pa?p=1:" & rsy.Fields("nr").Value & ":10>(" & rsy.Fields("nr").Value & ")</a></td></tr>"
                 Case "淘宝"
-                    jg &= "<tr><td bgcolor=" & ANS & " align=center>淘宝联系</td>"
+                    jg &= "<tr><td align=center>淘宝联系</td>"
                     jg &= "<td><a target=""_blank"" href=""http://amos1.taobao.com/msg.ww?v=2&uid=" & rsy.Fields("nr").Value & "&s=1"" ><img border=""0"" src=""http://amos1.taobao.com/online.ww?v=2&uid=" & rsy.Fields("nr").Value & "&s=1"" alt=""" & rsy.Fields("nr").Value & """ /></a></td></tr>"
                 Case "阿里旺旺"
-                    jg &= "<tr><td bgcolor=" & ANS & " align=center>旺旺联系</td>"
+                    jg &= "<tr><td align=center>旺旺联系</td>"
                     jg &= "<td><a target=""_blank"" href=""http://amos.alicdn.com/getcid.aw?v=2&uid=" & rsy.Fields("nr").Value & "&site=cntaobao&s=1&groupid=0&charset=utf-8""><img border=""0"" src=""http://amos.alicdn.com/online.aw?v=2&uid=" & rsy.Fields("nr").Value & "&site=cntaobao&s=1&charset=utf-8"" alt=""点击这里给我发消息"" title=""点击这里给我发消息"" /></a></td></tr>"
                 Case "SKYPE"
-                    jg &= "<tr><td bgcolor=" & ANS & " align=center>SKYPE联系</td>"
+                    jg &= "<tr><td align=center>SKYPE联系</td>"
                     jg &= "<td><a href=callto://" & rsy.Fields("nr").Value & "><img src=http://goodies.skype.com/graphics/skypeme_btn_small_yellow.gif border=0></a></td></tr>"
                 Case "MSN"
-                    jg &= "<tr><td bgcolor=" & ANS & " align=center>MSN联系</td>"
+                    jg &= "<tr><td align=center>MSN联系</td>"
                     jg &= "<td><a href=""msnim:chat?contact=" & rsy.Fields("nr").Value & """><img border=0 size=18 SRC=images/msn.gif>:" & rsy.Fields("nr").Value & "</a></td></tr>"
             End Select
             rsy.MoveNext()
@@ -527,7 +498,7 @@ Public Class WebPagesCS
         jg = ""
         saveFileName = ""
         sql = "SELECT top 1 * from manual where id=" & cid
-        rs.Open(sql, conn, 1, 3, 1)
+        rs.Open(sql, conn, 1, 1, 1)
         If rs.EOF Then
             jg = "资料不存在!"
             doit = 0
@@ -553,6 +524,47 @@ Public Class WebPagesCS
         rs.Close()
         Return jg
     End Function
+    '导出新闻列表
+    Function GetNewList() As String
+        Dim Conn As New ADODB.Connection
+        Dim rs As New ADODB.Recordset
+        Dim jg As String = ""
+        CC.Connecttodb()
+        If Conn.State = 0 Then Conn.Open(CC.setConstr(DBord_ecms))
+        rs.Open("SELECT  * from webpages where lxbh='018'", Conn, 1, 1, 1)
+        jg = "<ul>"
+        While Not rs.EOF
+            jg &= "<li>"
+            jg &= "<a href=Mypages.aspx?p=News&id=" & rs.Fields("id").Value & ">"
+            jg &= IIf(Len(rs.Fields("xm").Value) <= 30, rs.Fields("xm").Value, Left(rs.Fields("xm").Value, 27) & "...")
+            jg &= "</a></li>"
+            rs.MoveNext()
+        End While
+        jg &= "</ul>"
+
+        rs.Close()
+        Conn.Close()
+        Return jg
+    End Function
+    'GetNews4id
+    Function GetNews4id(ByVal cid As String) As String
+        Dim Conn As New ADODB.Connection
+        Dim rs As New ADODB.Recordset
+        Dim jg As String = ""
+        CC.Connecttodb()
+        If Conn.State = 0 Then Conn.Open(CC.setConstr(DBord_ecms))
+        rs.Open("SELECT  * from webpages where id=" & cid, Conn, 1, 1, 1)
+        jg = "<div class=""pagenr"">"
+        If Not rs.EOF Then
+            jg = Replace(rs.Fields("nr").Value, vbCrLf, " ")
+        End If
+        jg &= "</div>"
+        rs.Close()
+        Conn.Close()
+        Return jg
+    End Function
+
+
     Function ShowAtt(ByVal s)
         Dim f As Object
         Dim i As Integer
