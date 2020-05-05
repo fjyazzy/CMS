@@ -5,21 +5,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>销售管理</title>
+    <link runat="server" id="lLink" rel="stylesheet" href="../../cmscss/home/style1.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    <table align="center" border="0" style="width:800px;text-align:center;">
-        <tr><td colspan="2"><h3>交易管理系统</h3></td></tr>
-        <tr><td style="width:100px;text-align:left;"><h4>询价单</h4></td><td style="text-align:left;">
-            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-            </td></tr>
-        <tr><td style="width:100px;text-align:left;"><h4>定单</h4></td><td style="text-align:left;">
-            <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
-            </td></tr>
+    <table border="0" style="width:100%;background-color:#eeeeee">
+        <tr>
+            <td style="width:60px;"><h3>询价单</h3></td>
+            <td><asp:Label ID="Label1" runat="server" Text=""></asp:Label></td>
+            <td style="width:60px;"><h3>定单</h3></td>
+            <td><asp:Label ID="Label2" runat="server" Text=""></asp:Label></td>
+            <td></td>
+        </tr>
     </table>
-    </div>
     </form>
 </body>
 </html>

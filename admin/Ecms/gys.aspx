@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../../cmsjs/Sdialog.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server"><h3>供应商管理</h3>
     <TableList:Tlistdata  id="tadata"  class="logins" 
         DBOrd="6" DBname="Gys" TjExpression=""
         runat="server">

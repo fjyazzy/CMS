@@ -84,8 +84,8 @@ Public Class WebPagesCS
     ' 制作搜索框
     Public Function GetSearchBox()
         Dim jg As String
-        jg = "<div Class=""search bar6""><form action=catalogs.aspx>"
-        jg &= "<input type=text placeholder=""请输入型号或产品相关信息""  name=skey size=60>&nbsp;"
+        jg = "<div Class=""Searchbar""><form action=catalogs.aspx>"
+        jg &= "<input type=text placeholder=""请输入型号或产品相关信息"" name=skey>"
         jg &= "<input type=submit name='搜索' value='搜索'>"
         jg &= "</form></div>"
         jg &= SearchP(15, "1", "1", "Catalogs.aspx")
@@ -118,7 +118,7 @@ Public Class WebPagesCS
                 '带类型type
                 sql = "SELECT top 200 id,type,fz,manufactory,shortDesc,productimg from ecms_products where isdel=0 and categoryid=" & Skey & " order by visitTime desc , uptime desc,id desc"
             Case 3
-                sql = "SELECT top 15  id,type,fz,manufactory,shortDesc,productimg from ecms_products where isdel=0 order by visitTime desc ,uptime desc,id desc"
+                sql = "SELECT top 20  id,type,fz,manufactory,shortDesc,productimg from ecms_products where isdel=0 order by visitTime desc ,uptime desc,id desc"
             Case 4
                 sql = "SELECT top 15 id,type,fz,manufactory,shortDesc,productimg from ecms_products where isdel=0 and categoryid=" & Skey & " order by visitTime desc ,uptime desc,id desc"
             Case 6
@@ -160,7 +160,7 @@ Public Class WebPagesCS
                 jg &= "&nbsp;页码：" & page & "/" & rs.PageCount
                 jg &= "</td></tr>"
             Case 3, 4
-                rs.PageSize = 12
+                rs.PageSize = 15
                 page = 1
             Case 8, 15
                 rs.PageSize = 28
@@ -173,9 +173,8 @@ Public Class WebPagesCS
         End Select
         rs.AbsolutePage = page
 
-        '设置模式 1：原文  2：html
+        '设置模式 1：aspx  2：html
         Dim imode As Integer = 2
-
         Select Case mode
             Case 8
                 For i = 1 To rs.PageSize
@@ -620,7 +619,7 @@ Public Class WebPagesCS
         sql = "SELECT * from category_products where id=" & Cid
         rs2.Open(sql, Conn, 1, 1, 1)
         If Not rs2.EOF Then
-            jg &= "<h4>所在目录:<a href=catalogs.aspx?id=" & rs2.Fields("id").Value & ">" & rs2.Fields("catalogname").Value & "</a></h4>"
+            jg &= "<a href=catalogs.aspx?id=" & rs2.Fields("id").Value & ">" & rs2.Fields("catalogname").Value & "</a>"
         End If
         rs2.Close()
         Return jg

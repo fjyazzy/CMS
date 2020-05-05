@@ -45,7 +45,7 @@ Public Class TableListCS
     ''' <param name="lx"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Function ShowPage(ByVal Conn As ADODB.Connection, ByVal DBORD As String, ByVal DBname As String, ByVal TableMode As String, ByVal FieldNum As Integer, ByVal FieldName() As String, ByVal FileName As String, ByVal FileName2 As String, ByVal TjExpression As String， ByVal isPic As Integer, ByVal lx As String, ByVal px As String, ByVal w As Integer, ByVal h As Integer, ByVal Cid As String， ByVal Skey As String) As String
+    Public Function ShowPage(ByVal Conn As ADODB.Connection, ByVal DBORD As String, ByVal DBname As String, ByVal TableMode As String, ByVal FieldNum As Integer, ByVal FieldName() As String, ByVal FileName As String, ByVal FileName2 As String, ByVal TjExpression As String， ByVal isPic As Integer, ByVal lx As String, ByVal px As String, ByVal w As Integer, ByVal h As Integer, ByVal Cid As String， ByVal Skey As String, ByVal OrdKey As String) As String
         Dim jg, jgx, sql, bgc As String
         Dim j, id, k As Integer
         Dim rn, pn As Long
@@ -62,7 +62,7 @@ Public Class TableListCS
         'pn 为总页面
         pn = CLng(rn / PAGENUMS + 0.5)
         rs.Close()
-        jgx = "页码(" & px & "/" & pn & "):"
+        jgx = "总记录数:" & rn & "条,页码(" & px & "/" & pn & "):"
         '根据当前的页号，计算要显示的序列
         k = px \ 10
         For i = k * 10 + 1 To k * 10 + 10
@@ -74,21 +74,25 @@ Public Class TableListCS
             End If
         Next
 
-        jgx &= "<a href=# onclick=""" & cc.ShowDialog(1, "../" & FileName2 & "?dbord=" & DBORD & "&dbname=" & DBname & "&TableMode=" & TableMode & "&Cid=" & Cid & "&id=0&isPIC=" & isPic， "添加项目", w, h) & """> + 添加一条新纪录...</a>"
+        jgx &= "<a href=# onclick=""" & CC.ShowDialog(1, "../" & FileName2 & "?dbord=" & DBORD & "&dbname=" & DBname & "&TableMode=" & TableMode & "&Cid=" & Cid & "&id=0&isPIC=" & isPic， "添加项目", w, h) & """> + 添加一条新纪录...</a>"
         jgx &= " | <input type=text name=skey value='" & Skey & "' size=10><input type=button name=search value='搜索' onclick=""location.href='" & FileName & "?Cid=" & Cid & "&px=1&skey='+form1.skey.value"">"
         jgx &= " | <a href=" & FileName & "?Cid=" & Cid & "&skey=" & Skey & "&gn=Excel> 打包EXCEL下载</a>"
-        jgx &= " | <a href=# onclick=""" & cc.ShowDialog(1, "../CSVImport.aspx?dbord=" & DBORD & "&dbname=" & DBname & "&TableMode=" & TableMode & "&Cid=" & Cid & "&id=0&isPIC=" & isPic， "CSV格式文件导入", 800, 400) & """>  CSV格式文件导入...</a>"
+        jgx &= " | <a href=# onclick=""" & CC.ShowDialog(1, "../CSVImport.aspx?dbord=" & DBORD & "&dbname=" & DBname & "&TableMode=" & TableMode & "&Cid=" & Cid & "&id=0&isPIC=" & isPic， "CSV格式文件导入", 800, 400) & """>  CSV格式文件导入...</a>"
         jg = Replace(jg, "<<页码信息>>", jgx)
+
+        '根据ORDER KEY 生成 Order Expression
+        Dim OrderExpression As String
+        OrderExpression = " Order by " & OrdKey
 
         '正式显示数据
         If px = 1 Then
-            sql = "select top " & PAGENUMS & " * from " & DBname & TjExpression
-            sql &= " order by id "
+            sql = "select top " & PAGENUMS & " * from " & DBname & TjExpression & OrderExpression
         Else
-            sql = "select top " & PAGENUMS & " * from " & DBname
-            sql &= TjExpression & " AND (id NOT IN "
-            sql &= " ( SELECT TOP " & PAGENUMS * (px - 1)
-            sql &= " id FROM " & DBname & TjExpression & " ORDER BY id)) order by id"
+            sql = "select top " & PAGENUMS & " * from " & DBname & TjExpression
+            sql &= " AND ( "
+            sql &= " id NOT IN ( SELECT TOP " & PAGENUMS * (px - 1) & " id FROM " & DBname & TjExpression & OrderExpression & ")"
+            sql &= ") "
+            sql &= OrderExpression
         End If
 
         rs.Open(sql, Conn, 1, 1)
@@ -112,7 +116,7 @@ Public Class TableListCS
                 jgx &= "<td>" & IIf(Len(CellNr) > 30, Left(CellNr, 30) & "...", CellNr) & "</td>"
             Next
             jgx &= "<td>"
-            jgx &= "<a href=# onclick=""if(confirm('是否删除本行数据?')) { window.location.href='" & FileName & "?Cid=" & Cid & "&lx=" & lx & "&px=" & px & "&gn=del&id=" & id & "'; }"">删除</a>"
+            jgx &= "<a href=# onclick=""If(confirm('是否删除本行数据?')) { window.location.href='" & FileName & "?Cid=" & Cid & "&lx=" & lx & "&px=" & px & "&gn=del&id=" & id & "'; }"">删除</a>"
             jgx &= "|"
             jgx &= "<a href=# onclick=""changeFsize();" & CC.ShowDialog(1, "../" & FileName2 & "?Cid=" & Cid & "&dbord=" & DBORD & "&dbname=" & DBname & "&TableMode=" & TableMode & "&id=" & id & "&isPIC=" & isPic， "编辑项目", w， h) & """>修改</a>"
 

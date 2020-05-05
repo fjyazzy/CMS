@@ -11,7 +11,7 @@
 			<FRAME name="bmenu" src="bmenu.aspx" scrolling="no" frameborder="no">
 			<FRAME name="bar" src="bar.htm" scrolling="no" frameborder="no">
             <Frameset id="Contentx" rows="99%,1%,*" frameborder="yes" border="3" framespacing="0">
-                    <frame id="mainx" name="mainx" src="aboutus.aspx" scrolling="yes">
+                    <frame id="mainx" name="mainx" src="SearchResult.aspx" scrolling="yes">
                     <frame id="mainx1" name="mainx1" src="" scrolling="yes">
                     <frame id="mainx2" name="mainx2" src="" scrolling="yes">
            </Frameset>

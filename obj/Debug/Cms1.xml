@@ -2016,9 +2016,36 @@ lLink 控件。
 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
 </remarks>
 </member>
-<member name="F:Cms1.SearchResult._Form1">
+<member name="F:Cms1.SearchResult._form2">
 <summary>
-Form1 控件。
+form2 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.SearchResult._skey">
+<summary>
+skey 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.SearchResult._CK1">
+<summary>
+CK1 控件。
+</summary>
+<remarks>
+自动生成的字段。
+若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+</remarks>
+</member>
+<member name="F:Cms1.SearchResult._Button1">
+<summary>
+Button1 控件。
 </summary>
 <remarks>
 自动生成的字段。
@@ -3028,7 +3055,7 @@ tadata 控件。
  <param name="h"></param>
  <returns></returns>
 </member>
-<member name="M:Cms1.TableListCS.ShowPage(ADODB.Connection,System.String,System.String,System.String,System.Int32,System.String[],System.String,System.String,System.String,System.Int32,System.String,System.String,System.Int32,System.Int32,System.String,System.String)">
+<member name="M:Cms1.TableListCS.ShowPage(ADODB.Connection,System.String,System.String,System.String,System.Int32,System.String[],System.String,System.String,System.String,System.Int32,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String)">
  <summary>
  显示数据库数据列表
  显示表格内容

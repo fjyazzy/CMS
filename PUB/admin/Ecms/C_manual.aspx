@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../../cmsjs/Sdialog.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server"><h3>各种资料分类</h3>
     <TableList:Tlistdata  id="tadata"  class="logins" 
         DBOrd="6" DBname="Category_Manuals" TjExpression=""
         runat="server">

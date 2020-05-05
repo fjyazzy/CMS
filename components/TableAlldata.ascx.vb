@@ -43,7 +43,7 @@ Public Class TableAlldata
         End If
 
         '提交信息写入数据库
-        If IsPostBack = true Then
+        If IsPostBack = True Then
             Dim rs As New ADODB.Recordset
             rs.Open("select  * from " & TableName, Conn, 1, 3)
             While Not rs.EOF
@@ -61,7 +61,6 @@ Public Class TableAlldata
         Label1.Text = jg
 
     End Sub
-
     Function MakeTablePage(ByVal DBOrd As String, ByVal TableName As String) As String
 
         Dim jg As String = ""

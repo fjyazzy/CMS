@@ -23,13 +23,40 @@ Partial Public Class SearchResult
     Protected WithEvents lLink As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Form1 控件。
+    '''form2 控件。
     '''</summary>
     '''<remarks>
     '''自动生成的字段。
     '''若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
     '''</remarks>
-    Protected WithEvents Form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents form2 As Global.System.Web.UI.HtmlControls.HtmlForm
+    
+    '''<summary>
+    '''skey 控件。
+    '''</summary>
+    '''<remarks>
+    '''自动生成的字段。
+    '''若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+    '''</remarks>
+    Protected WithEvents skey As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''CK1 控件。
+    '''</summary>
+    '''<remarks>
+    '''自动生成的字段。
+    '''若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+    '''</remarks>
+    Protected WithEvents CK1 As Global.System.Web.UI.WebControls.CheckBox
+    
+    '''<summary>
+    '''Button1 控件。
+    '''</summary>
+    '''<remarks>
+    '''自动生成的字段。
+    '''若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+    '''</remarks>
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
     '''Label1 控件。

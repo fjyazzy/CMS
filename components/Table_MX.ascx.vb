@@ -62,6 +62,8 @@ Public Class TableListMX
         Dim isPIC As String = ""
         Dim DWidth As String = ""
         Dim DHeight As String = ""
+        Dim Ordkey As String = ""
+
         Dim rs As New ADODB.Recordset
         Dim Conn2 As New ADODB.Connection
         '如果当前库不是主数据库，
@@ -80,6 +82,11 @@ Public Class TableListMX
             DWidth = rs.Fields("DWidth").Value
             DHeight = rs.Fields("DHeight").Value
             TjExpression2 = rs.Fields("TjExpress").Value
+            If rs.Fields("orderkey").Value = "-" Then
+                Ordkey = " id "
+            Else
+                Ordkey = rs.Fields("orderkey").Value
+            End If
         End If
         rs.Close()
         If DBOrd <> 1 Then
@@ -145,7 +152,7 @@ Public Class TableListMX
                 Conn.Execute("delete from " & DBName & " where id=" & xID)
             End If
 
-            jg = TLS.ShowPage(Conn, DBOrd, DBName, TableMode, FieldNum, FieldName, FileName, fileName2, TjExpression, isPIC, lx, px, DWidth, DHeight, Cid, Skey)
+            jg = TLS.ShowPage(Conn, DBOrd, DBName, TableMode, FieldNum, FieldName, FileName, fileName2, TjExpression, isPIC, lx, px, DWidth, DHeight, Cid, Skey, Ordkey)
             '设置弹出窗口
             jg &= TLS.setdialog
 

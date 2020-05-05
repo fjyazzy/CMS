@@ -6,73 +6,22 @@
 
         cc.Connecttodb()
         If Conn.State = 0 Then Conn.Open(cc.setConstr(1))
-        Dim yfm, xm As String
+        Dim yfm, xm, sql As String
+        Dim rs As New ADODB.Recordset
         yfm = Server.UrlDecode(Request.Cookies("username").Value)
-        xm = Server.UrlDecode(Request.Cookies("name").Value)
         If Not IsPostBack Then
         Else
             If mm1.Text = mm2.Text Then
-                Dim sql As String
-                Dim rs As New ADODB.Recordset
-                Select Case Request.Cookies("rylx").Value
-                    Case 1
-                        sql = "select  * from DGSX_XS where xsdm='" & yfm & "'"
-                        rs.Open(sql, Conn, 1, 3)
-                        If rs.Fields("mm").Value <> jmm.Text Then
-                            rs.Close()
-                            Label1.Text = ("<font color=red>旧密码错误!</font>")
-                            Exit Sub
-                        End If
-                        rs.Fields("mm").Value = mm1.Text
-                        rs.Update()
-                        rs.Close()
-                    Case 2, 4, 5, 6, 7, 8, 9, 11, 12, 53
-                        sql = "select  * from MyUsers where xm='" & xm & "'"
-                        rs.Open(sql, Conn, 1, 3)
-                        If rs.Fields("mm").Value <> jmm.Text Then
-                            rs.Close()
-                            Label1.Text = ("<font color=red>旧密码错误!</font>")
-                            Exit Sub
-                        End If
-                        rs.Fields("mm").Value = mm1.Text
-                        rs.Update()
-                        rs.Close()
-                    Case 55
-                        sql = "select  * from DGSX_XWFDJS where xm='" & xm & "'"
-                        rs.Open(sql, Conn, 1, 3)
-                        If rs.Fields("mm").Value <> jmm.Text Then
-                            rs.Close()
-                            Label1.Text = ("<font color=red>旧密码错误!</font>")
-                            Exit Sub
-                        End If
-                        rs.Fields("mm").Value = mm1.Text
-                        rs.Update()
-                        rs.Close()
-                    Case 51 '班委
-                        sql = "select  * from DM_bjk where dm='" & yfm & "'"
-                        rs.Open(sql, Conn, 1, 3)
-                        If rs.Fields("mm").Value <> jmm.Text Then
-                            rs.Close()
-                            Label1.Text = ("<font color=red>旧密码错误!</font>")
-                            Exit Sub
-                        End If
-                        rs.Fields("mm").Value = mm1.Text
-                        rs.Update()
-                        rs.Close()
-                    Case 52 '楼委
-                        sql = "select  * from GY_LHLC where dm='" & yfm & "'"
-                        rs.Open(sql, Conn, 1, 3)
-                        If rs.Fields("mm").Value <> jmm.Text Then
-                            rs.Close()
-                            Label1.Text = ("<font color=red>旧密码错误!</font>")
-                            Exit Sub
-                        End If
-                        rs.Fields("mm").Value = mm1.Text
-                        rs.Update()
-                        rs.Close()
-
-
-                End Select
+                sql = "select  * from Users where username='" & yfm & "'"
+                rs.Open(sql, Conn, 1, 3)
+                If rs.Fields("password").Value <> jmm.Text Then
+                    rs.Close()
+                    Label1.Text = ("<font color=red>旧密码错误!</font>")
+                    Exit Sub
+                End If
+                rs.Fields("password").Value = mm1.Text
+                rs.Update()
+                rs.Close()
                 Label1.Text = ("<font color=red>密码修改完成!</font>")
             Else
                 Label1.Text = ("<font color=red>两次新密码不同!</font>")

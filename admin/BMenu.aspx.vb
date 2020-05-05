@@ -92,7 +92,6 @@ Public Class BMenu
         End While
         rs2.Close()
         Label1.Text &= "</table>"
-        Label2.text = ssl()
         Conn.Close()
 
     End Sub
@@ -113,55 +112,5 @@ Public Class BMenu
         Return k
     End Function
 
-    Function ssl() As String
-        Dim jg As String = ""
 
-        jg &= "<table border=""0"" width=""100%"">"
-        jg &= "<tr style=""CURSOR: pointer"" onclick=""ShowHideDiv('menua1')"">"
-        jg &= "<td Class=""myMenu"" align=center><img alt=""|"" src=""../images/home/plus.gif"">查询产品信息</td>"
-        jg &= "</tr>"
-        jg &= "<tr>"
-        jg &= " <td>"
-        jg &= "<div id=""menua1"" style=""POSITION: relative; DISPLAY: none"">"
-        jg &= " <input value=""KC"" type=""checkbox"" name=""Ck1"" checked>库存"
-        jg &= " <input value=""ZL"" type=""checkbox"" name=""Ck1"">资料<br>"
-        jg &= "	<input value=""YWD"" type=""checkbox"" name=""Ck1"" checked>订单"
-        jg &= " <input value=""ORDER"" type=""checkbox"" name=""Ck1"" checked>询价单"
-        jg &= "<br>"
-        jg &= "<input value=""GYS"" type=""checkbox"" name=""Ck1"">供应商"
-        jg &= "</div>"
-		jg &= "</td>"
-		jg &= "</tr>"
-        jg &= "<tr style=""CURSOR: pointer;"" onclick=""ShowHideDiv('menua2')"" >"
-        jg &= "<td Class=""myMenu"" align=center><img  alt=""|"" src=""../images/home/plus.gif"">查询业务信息</td>"
-        jg &= "</tr>"
-        jg &= "	<tr>"
-        jg &= " <td><div id=""menua2"" style=""POSITION: relative; DISPLAY: none"">"
-        jg &= "<input value=""XM"" type=""checkbox"" name=""Ck2"" checked>姓名"
-        jg &= "<input value=""TYPE"" type=""checkbox"" name=""Ck2"" checked>型号<br>"
-        jg &= "<input value=""DH"" type=""checkbox"" name=""Ck2"" > 电话"
-        jg &= "<input value=""BZ"" type=""checkbox"" name=""Ck2"">备注<br>"
-        jg &= "<input value=""CS"" type=""checkbox"" name=""Ck2"">厂商"
-        jg &= "<input value=""DZ"" type=""checkbox"" name=""Ck2"">地址<br>"
-        jg &= "</div>"
-        jg &= "</td>"
-        jg &= "</tr>"
-		jg &= "<tr style= ""CURSOR: pointer"" onclick=""ShowHideDiv('menua3')"">"
-        jg &= "<td Class=""myMenu"" align=center><img  alt=""|"" src=""../images/home/plus.gif"">选择时间范围</td>"
-        jg &= "</tr>"
-        jg &= "<tr>"
-        jg &= "<td><div id=""menua3"" style=""POSITION: relative; DISPLAY: none"">"
-        jg &= "从: <input size=""12"" name=""kssj"" value=''><BR>"
-        jg &= "到: <input size=""12"" name=""jssj"" value=''></div>"
-        jg &= "</td>"
-        jg &= "</tr>"
-        jg &= "<tr>"
-        jg &= "<td>"
-        jg &= "<input id=""Skey"" name=""Skey"" size=""15""><br>"
-        jg &= "<input id=""Button"" Class=""btnlogin"" type=""button"" value="" 搜   索 "" onclick=""gosearch()"">"
-        jg &= "</td></tr></table>"
-
-
-        Return jg
-    End Function
 End Class

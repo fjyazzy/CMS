@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../../cmsjs/Sdialog.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server"><h3>主菜单管理</h3>
     <TableList:Tlistdata  id="tadata"  class="logins" 
         DBOrd="1" DBname="sysmenus" TjExpression=""
         runat="server">

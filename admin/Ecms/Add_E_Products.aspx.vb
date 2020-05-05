@@ -291,7 +291,7 @@ Public Class Add_E_Products
         rs.Open(sql, Conn, 1, 1)
         jg = "<ul>"
         While Not rs.EOF
-            jg &= "<li>" & rs.Fields("type").Value & " -<a href=manual_2.aspx?dbn=manual&id=" & rs.Fields("id").Value & ">编辑</a>-<a href=manual_2.aspx?gn=del&dbn=manual&id=" & rs.Fields("id").Value & ">删除</a>" & ShowAtt(rs.Fields("furl").Value)
+            jg &= "<li>" & rs.Fields("type").Value & " -<a href=add_manual.aspx?id=" & rs.Fields("id").Value & ">编辑</a>-<a href=add_manual.aspx?gn=del&id=" & rs.Fields("id").Value & ">删除</a>" & ShowAtt(rs.Fields("furl").Value)
             rs.MoveNext()
         End While
         rs.Close()

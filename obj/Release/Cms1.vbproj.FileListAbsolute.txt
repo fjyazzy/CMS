@@ -13,3 +13,4 @@ D:\Upload\CMSv1\obj\Release\Cms1.vbproj.GenerateResource.Cache
 D:\Upload\CMSv1\obj\Release\Cms1.dll
 D:\Upload\CMSv1\obj\Release\Cms1.xml
 D:\Upload\CMSv1\obj\Release\Cms1.pdb
+D:\Upload\CMSv1\obj\Release\Cms1.vbprojResolveAssemblyReference.cache

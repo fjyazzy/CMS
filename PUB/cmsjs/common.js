@@ -12,3 +12,4 @@ function openWin(url, text, winInfo) {
         }
     },1);
 }
+

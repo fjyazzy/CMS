@@ -12,7 +12,7 @@
         lLink.Attributes.Add("href", "../../cmscss/home/style" & SYSTEMSTYLE & ".css")
 
 
-        Dim qzui As String = "href=# onclick=""top.document.all('Contentx').rows='5%,95%,*';top.document.all('mainx1').src='ecms/"
+        Dim qzui As String = "href=# onclick=""top.document.all('Contentx').rows='6%,94%,*';top.document.all('mainx1').src='ecms/"
         Label1.Text = ""
         Dim cid, i As Integer
         Dim sl(10) As Integer

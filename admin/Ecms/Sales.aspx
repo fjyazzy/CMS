@@ -10,11 +10,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <table border="0" style="width:100%;">
+    <table border="0" style="width:100%;background-color:#eeeeee">
         <tr>
-            <td style="width:60px;background:#abcdef">询价单</td>
+            <td style="width:60px;"><h3>询价单</h3></td>
             <td><asp:Label ID="Label1" runat="server" Text=""></asp:Label></td>
-            <td style="width:60px;background:#abcdef">定单</td>
+            <td style="width:60px;"><h3>定单</h3></td>
             <td><asp:Label ID="Label2" runat="server" Text=""></asp:Label></td>
             <td></td>
         </tr>

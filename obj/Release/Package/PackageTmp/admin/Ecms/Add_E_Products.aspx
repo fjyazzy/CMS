@@ -116,7 +116,7 @@
 				<tr>
 					<td><strong>应用说明</strong></td>
 					<td colspan="6">
-						<asp:textbox id="shortdesc2" runat="server" Width="800px"></asp:textbox>(可换行)</td>
+						<asp:textbox style="OVERFLOW-Y: visible" id="shortdesc2" runat="server" Width="800px"  TextMode="MultiLine"></asp:textbox>(可换行)</td>
 				</tr>
 				<tr>
 					<td><strong><strong style="Z-INDEX: 0">首次录入人</strong></strong></td>
